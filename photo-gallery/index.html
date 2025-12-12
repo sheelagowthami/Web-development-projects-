@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Photo Gallery</title>
+        <style>
+           body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0b132b;
+            color: white;
+            margin: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        nav button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #1e88e5;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        .page {
+            display: none;
+            margin-top: 25px;
+        }
+        .photo-container {
+            margin-bottom: 30px;
+        }
+        img {
+            border-radius: 10px;
+            width: 300px;
+            margin: 8px;
+        }
+            
+   </style>
+    </head>
+    <body>
+        <h1>📸 Beautiful Photo Gallery </h1>
+        <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('travel')">Travel</button>
+        <button onclick="showPage('temples')">Temples</button>
+        <button onclick="showPage('birds')">Birds</button>
+        <button onclick="showPage('animals')">Animals</button>
+        <button onclick="showPage('nature')">Nature</button>
+        </nav>
+        <div id="home" class="page" style="display:block;">
+         <h2>🖼️ Welcome to Photo Gallery </h2>
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQfnoPwErSPW64svz_z7f3MUAyzZP7sjINpg&usqp=CAU" width="350">
+         <p>Explore My Beautiful Photo Collection </p>
+         </div>
+         <div id="travel" class="page">
+             <h2>🧳Travel Photography</h2>
+             <div class="photo-container">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9-OhKkJEizHaR5o8dGovrm4HZGhs6j5cBBA&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRfe-3J8JkSk_Fefk3jFtto6n_rF4sUo5hmg&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmRn54HCKW5Ylm5btXE8zc0fPDhFRrZd3bGg&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGmK_OmZ_KlEzLjLQQYvIcbOFqLA3FDckEcXUuCRY16A&s=10" width="200">
+                 <img src="https://vagabundler.com/wp-content/uploads/2019/06/P3160166-Copy.jpg" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEik6bnnCnAlv1fYz6KY8uYXkPZZBVYTuvZA&usqp=CAU" width="200">
+             </div>
+         </div>
+         <div id="temples" class="page">
+             <div class="photo-container">
+                 <h2>🛕Temple Photography </h2>
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVyzgXMr47SpUTaPFhb4Ti0TJJhw5nATS0Bg&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWpj1rT6fFxQigWOU-gFpDRAF1rXvnrOStBg&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc7bCPExjnc0HB3roOTwKEWZBAYl8QsQfsBw&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWpEl7RJK0yCThgrtFjoCmCAVb0fI9kWVctQ&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUn0DBrf5cgdyW3X5p-fjZEJezuKqQl_Q9dQ&usqp=CAU">
+             </div>
+         </div>
+         <div id="birds" class="page">
+             <div class="photo-container">
+                 <h2>🕊️Birds Photography</h2>
+                 <img src="https://www.junglesafarirajajinationalpark.com/blog/wp-content/uploads/2024/04/9-1-1024x683.jpg" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZD8KOxv0LXTWo91luzCB9ij_AhMX8Zh8eiQ&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_zPI195amwDYKnpZcw6bJ7oYtcOkQJaa74w&usqp=CAU" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjT4vgngHxWgU_Ynt8kCNNJ53TOew1XagLY3lkYhJkig&s=10" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUQF5LUsTyG9EzvW3s6W7JAVJocEDigvbIpGGbJ86C1DMgV6mhIczuYvw&s=10" width="200">
+                 <img src="https://pbs.twimg.com/media/E5wdWkcXIAAi3wX.jpg" width="200">
+                 <img src="https://i.pinimg.com/736x/01/50/8c/01508c325fc6b4bf34ab9368444d2ef5.jpg" width="200">
+                 
+                 
+             </div>
+         </div>
+         <div id="animals" class="page">
+             <div class="photo-container">
+                 <h2>🐾 Animal Photography</h2>
+                 <img src="https://images.unsplash.com/photo-1451303688941-9e06d4b1277a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwYW5pbWFsfGVufDB8fDB8fHww" width="200">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ08BO5VZ0Fac_Xiqvn1QwCFV9Y_nO8N8OITroZDCrmQw&s=10" width="200">
+                 <img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZyaWNhbiUyMHdpbGRsaWZlfGVufDB8fDB8fHww" width="200">
+                 <img src="https://headlines.peta.org/wp-content/uploads/2020/12/ACOM-VIV-Rabbit-Bunny-satyabrata-sm-u_kMWN-BWyU-unsplash-2-scaled.jpeg" width="200">
+                 <img src="https://images.freeimages.com/images/large-previews/510/graceful-zebra-in-motion-0410-5704437.jpg?fmt=webp&w=500" width="200">
+                 <img src="https://media.wired.com/photos/65caa6f6f553745750c04769/3:2/w_2560%2Cc_limit/elephant-congo-science-GettyImages-630005418.jpg" width="200">
+                 <img src="https://www.stockvault.net/data/2007/03/01/100489/thumb16.jpg" width="200">
+             </div>
+         </div>
+         <div id="nature" class="page">
+             <div class="photo-container">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK4KQoPfrOAQKFogKhk4wY0_sVPxD8yUk9jKahtCN3ftsw9VE3DuATV2Hh&s=10" width="200">
+                 <img src="https://images.unsplash.com/photo-1620053580376-3de604e91953?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fHww" width="200">
+                 <img src="https://thumbs.dreamstime.com/b/pure-real-nature-himachal-pradesh-india-117991776.jpg" width="200">
+                 <img src="https://www.easemytrip.com/travel/img/dudhsagar-n.jpg" width="200">
+                 <img src="https://plus.unsplash.com/premium_photo-1697729600773-5b039ef17f3b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8a2VyYWxhfGVufDB8fDB8fHww" width="200">
+                 <img src="https://vizagtourism.org.in/images/places-to-visit/header/araku-valley-vizag-tourism-entry-fee-timings-holidays-reviews-header.jpg" width="200">
+             </div>
+         </div>
+           <script>
+           function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.style.display = 'none');
+    document.getElementById(pageId).style.display = 'block';
+  }
+</script>
+            
+    </body>
+    
+</html>
