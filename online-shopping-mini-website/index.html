@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shopping Website</title>
+    <style>
+        body{
+          font-family: Arial, sans-serif;
+          text-align: center;
+          background-color: #0b132b;
+          color: white;
+          margin: 0;
+        }
+        h1 {
+          margin-top: 15px;
+        }     
+        nav button {
+          padding: 10px 18px;
+          margin: 5px;
+          border: none;
+          background-color: #1e88e5;
+          color: white;
+          font-size: 15px;
+          border-radius: 6px;
+          cursor: pointer;
+        }      
+        .page {
+          display: none;
+          margin-top: 20px;
+        }
+        img {
+          border-radius: 8px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <h1>🛍️ Online Shopping Website </h1>
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('men')">Men</button>
+        <button onclick="showPage('women')">Women</button>
+        <button onclick="showPage('kids')">Kids</button>
+    </nav> 
+
+    <div id="home" class="page" style="display:block">
+        <h2> 🛒 Welcome to Our Store </h2>
+        <img src="https://img.freepik.com/premium-vector/online-shopping-concept-happy-young-women-buying-products-online-application-store_138260-661.jpg" width="350">
+         <footer>
+            
+        <p>Created By :<b> S.Gowthami</b></p>
+        
+        </footer>
+        
+    </div>
+
+    <div id="men" class="page">
+        <h2>👔 Men's Collection </h2>
+        <h3>👕 T-Shirts</h3>
+        <h4>1)Black T-Shirt</h4>
+        <img src="https://gogirgit.com/cdn/shop/products/unisex-men-black-cotton-tshirt-gogirgit-back_7762ca02-95b2-49c3-ae77-0d68cd25a059_1800x.jpg?v=1669112924" width="300">
+        <p>Price: <b>₹399</b></p>
+        <h4>2)Green T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgFGrXAMTQp0ODjpWQl9wnqqXlaWGhLO9_xQ&usqp=CAU" width="300">
+        <p>price:<b>₹499</b></p>
+        <h4>3)Sand Colour T-Shirt</h4>
+        <img src="http://nobero.com/cdn/shop/files/norules_47d31c0c-e1dc-4214-bcc6-d8ca20d2fdb7.jpg?v=1757682721" width="300">
+        <p>price:<b>₹299</b></p>
+        <h4>4)White T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwNPaFIuJys8ahhhnDuMcPr-faC0LIeCdUCUs5C4x79g&s" width="300">
+        <p>price:<b>₹399</b></p>
+        <h4>5)Purple T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3eMAIhWqC94QhSK7qMbMmxOtLSY87Qg_S8ZuvXEAasa8K5Pkt48se98U&s=10" width="300">
+        <p>price:<b>₹299</b></p>
+
+        <h3>🧥Hoodies</h3>
+        <h4>1)Black Hoodie</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_90XxuX9rbXoDgFiseyFdhQMPW0EL6YJ75KXItPBCZg&s=10" width="300">
+        <p>price:<b>₹397</b></p>
+        <h4>2)Red Hoodie</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJksJHRtcnEbn8jIUw8SEYf1JjCGM_2gQ1JHSwfFPQAI6IXSnxEvVeHJEC&s=10" width="300">
+        <p>price:<b>₹400</b></p>
+        <h4>3)White Hoodie</h4>
+        <img src="https://static-01.daraz.com.np/p/2e136323cac1d9fc9291b08cef5a7841.jpg" width="300">
+        <p>price:<b>₹350</b></p>
+        <h4>4)Navy Blue Hoodie</h4>
+        <img src="https://assets.ajio.com/medias/sys_master/root/20240929/OtZb/66f8e04af9b8ef490b7da292/-286Wx359H-700509878-navy-MODEL.jpg" width="300">
+        <p>price:<b>₹430</b></p>
+    </div>
+
+    <div id="women" class="page">
+        <h2>👗Women Collection</h2>
+        <h3>🥻Traditional Dresses</h3>
+        <h4>1)Pink Dress</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkbdVvfTV3ozi5MXYSjfW_xBY5Au0vgYWOk4w-Lr6idQ&s=10" width="250">
+        <p>price:<b>₹200</b></p>
+        <h4>2)Red Dress</h4>
+        <img src="https://5.imimg.com/data5/SELLER/Default/2021/10/VZ/MW/HJ/4021912/long-sleeve-dress.jpg" width="300">
+        <p>price:<b>₹400</b></p>
+        <h4>3)Red Colour Lehenga</h4>
+        <img src="https://i.pinimg.com/736x/e3/68/da/e368da5646d81c563f11ffc3a8f59f31.jpg" width="300">
+        <p>price:<b>₹1000</b></p>
+        <h4>4)Pink Colour Lehenga</h4>
+        <img src="https://cdn.sareesaga.com/image/cache/product-2025/pink-and-rani-silk-designer-long-lehenga-choli-298084-400x550.jpg" width="300">
+        <p>price:<b>₹1200</b></p>
+        <h4>5)Magenta (deep pink) and  Cream </h4> <h4>Lehenga (traditional lehenga choli set)</h4>
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/372136156/MU/OL/GE/188767794/rk2668-2.jpg" width="300">
+        <p>price:<b>₹690</b></p>
+        <h4>6)Red with Gold zari work Kanjivaram silk </h4> <h4>lehenga choli (traditional lehenga choli) </h4>
+        <img src="https://wholetex.sgp1.cdn.digitaloceanspaces.com/full/kp-w182-kanjivaram-silk-zari-lehenga-choli-495.jpg" width="300">
+        <p>price:<b>₹950</b></p>
+
+        <h3>👚 Girls Anime T-shirts</h3>
+        <h4>1)Black Anime T-shirt featuring </h4> <h4><b>Demon Slayer</b> Anime Character <b>"Tsuyuri Kanao"</b></h4>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToQZzsDSxx5nCYT2udOyjRjFwm4gv62DzW_w&usqp=CAU" width="300">
+        <p>price:<b>₹300</b></p>
+        <h4>2)Pink and Black Anime T-shirt featuring</h4>
+        <h4><b>Demon Slayer</b> Anime Character <b>"Nezuko Kamado"</b></h4>
+        <img src="https://images-cdn.ubuy.co.in/6634afc7e43553666e356353-demon-slayer-cotton-t-shirt-tops-funny-t.jpg" width="300">
+        <p>price:<b>₹350</b></p>
+        <h4>3)White Anime T-shirt Featuring</h4>
+        <h4><b>Demon Slayer </b> Anime Character <b> "Kamado Tanjiro"</b></h4>
+        <img src="https://benyahyastore.ma/wp-content/uploads/2022/04/1-81.jpg" width="300">
+        <p>price:<b>₹400</b></p>
+        <h4>4)Black Anime T-shirt Featuring</h4>
+        <h4><b>Demon Slayer </b> Anime Character <b>"Kyojuro Rengoku"</b></h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5MudjAHRGvVuZqVF3Y4Salzo6dNZzbv4Mg&usqp=CAU" width="300">
+        <p>price:<b>₹300</b></p>
+        <h4>5)Black Anime T-Shirt Featuring</h4>
+        <h4><b>Demon Slayer </b> Anime Character 
+        <b> "Zenitsu Agatsuma"</b></h4>
+        <img src="https://www.filmyvastra.com/wp-content/uploads/2023/03/Zenutsu-Demon-Slayer-Black-T-Shirt.jpg" width="300">
+        <p>price:<b>₹400</b></p>
+    </div>
+
+    <div id="kids" class="page">
+        <h2>🧒 Kids Collection</h2>
+        <h3>👗Girls Frocks </h3>
+        <h4>1)Red Frock</h4>
+        <img src="https://liandli.in/cdn/shop/files/04.jpg?v=1722663586" width="300">
+        <p>price:<b>₹500</b></p>
+        <h4>2)Pink Frock</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2QX9FceHSjSX93bmZHDSGK822ByJ9fCx7ow&usqp=CAU" width="300">
+        <p>price:<b>₹450</b></p>
+        <h4>3)Baby Pink Frock</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTmpmh_VLpDQhe7_6w7OKuihUdm6dIbfFsWQ&usqp=CAU" width="300">
+        <p>price:<b>₹400</b></p>
+
+        <h3>🌼🥻Girls Traditional Dresses🌼🥻</h3>
+        <h4>1)Meganta Anarkali Kurta with Palazzo </h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy_S_7Kyme_-z37KInh6_I65jOONw09uB-PQ&usqp=CAU" width="300">
+        <p>price:<b>₹500</b></p>
+        <h4>2)Navy blue with gold </h4> 
+        <h4> colored border Lehenga choli</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxxIIk21lrVhNJ_Jj2wDnoGzsW7JYT7_Ix9w&usqp=CAU" width="300">
+        <p>price:<b>₹700</b></p>
+        <h4>3)pink Anarkali suit </h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScFt2LdU75lXD_BQn6clvLc0vQ7nZcm8kzug&usqp=CAU" width="300">
+        <p>price:<b>₹600</b></p>
+
+        <h3>👕 Boys T-Shirts</h3>
+        <h4>1)Blue T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-XInccjvu1zJLHNYW0VoULEyomhYisHCAtA&usqp=CAU" width="300">
+        <p>price:<b>₹400</b></p>
+        <h4>2)White T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPX6027FLrKqTrcDlZiEuQhiZjX-5pe8fkBA&usqp=CAU" width="300">
+        <p>price:<b>₹500</b></p>
+        <h4>3)Red T-Shirt</h4>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRduuvxxR0LzbMNEJtTZUgqAWTn91qxpxGQ9g&usqp=CAU" width="300">
+        <p>price:<b>₹450</b></p>
+
+
+           </div>
+
+    <script>
+      function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.style.display = 'none');
+        document.getElementById(pageId).style.display = 'block';
+      }
+    </script>
+
+</body>
+</html>
