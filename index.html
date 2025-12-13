@@ -107,17 +107,28 @@ semantic elements, images, links, and basic styling.
     </footer>
 
   </div>
-  
-<!-- Visitor interaction button -->
-<button onclick="thankVisitor()">Click here</button>
+  <!-- Visitor interaction button -->
+<div style="text-align: center; margin-top: 40px;">
+  <button onclick="sayHello()" style="
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+    Click Here
+  </button>
+</div>
 
+<!-- JavaScript -->
 <script>
-  // This function shows a thank-you message to visitors
-  function thankVisitor() {
+  // This function runs when the button is clicked
+  function sayHello() {
     alert("Hello! Thanks for visiting my projects.");
   }
 </script>
-
   
 </body>
 </html>
