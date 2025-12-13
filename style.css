@@ -1,3 +1,53 @@
 body {
-  background-color: purple;
+  background-color: #f4f6f8;   /* light professional gray */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #1f2937;   /* dark gray */
+  text-align: center;
+}
+
+h3 {
+  color: #4b5563;   /* medium gray */
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  color: #374151;
+  text-align: center;
+}
+
+h2 {
+  color: #111827;
+  text-align: center;
+  margin-top: 30px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+li {
+  background-color: #ffffff;  /* white cards */
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+a {
+  color: #2563eb;   /* professional blue */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #1e40af;
 }
