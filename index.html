@@ -2,83 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My HTML Projects</title>
+  <title>Sheela Gowthami | HTML Portfolio</title>
 
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #222;
-    max-width: 800px;
-    margin: auto;
-    padding: 30px;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 5px;
-  }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
 
-  h3 {
-    text-align: center;
-    color: #555;
-    font-weight: normal;
-    margin-top: 0;
-  }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-  p {
-    text-align: center;
-    color: #444;
-  }
+    h1 {
+      margin-bottom: 5px;
+    }
 
-  h2 {
-    margin-top: 40px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-  }
+    h3 {
+      color: #555;
+      font-weight: normal;
+      margin-top: 0;
+    }
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+    p {
+      color: #444;
+    }
 
-  li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-  a {
-    color: #0066cc;
-    text-decoration: none;
-  }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-align: center;
+    }
 
-  a:hover {
-    text-decoration: underline;
-  }
+    .card a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #777;
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
-  <h1>Sheela Gowthami</h1>
-  <h3>HTML Developer | CSE Student</h3>
+  <div class="container">
 
-  <p>
-    I am a Computer Science student learning web development.
-    Below are my HTML projects created using basic web technologies.
-  </p>
+    <header>
+      <h1>Sheela Gowthami</h1>
+      <h3>HTML Developer | CSE Student</h3>
+      <p>
+        I am a Computer Science student learning web development.
+        Below are my HTML projects created using basic web technologies.
+      </p>
+    </header>
 
-  <h2>My Projects</h2>
-  <ul>
-    <li><a href="about-me-page/">About Me Page</a></li>
-    <li><a href="anime-website/">Anime Website</a></li>
-    <li><a href="biography-of-a-leader/">Biography of a Leader</a></li>
-    <li><a href="blog-article/">Blog Article</a></li>
-    <li><a href="demon-slayer-anime-characters/">Demon Slayer Characters</a></li>
-    <li><a href="full-stack-developer-curriculum/">Full Stack Curriculum</a></li>
-    <li><a href="online-shopping-mini-website/">Online Shopping Website</a></li>
-    <li><a href="photo-gallery/">Photo Gallery</a></li>
-    <li><a href="recipe-website/">Recipe Website</a></li>
-    <li><a href="science-formula-web-page/">Science Formula Page</a></li>
-    <li><a href="solar-system-website/">Solar System Website</a></li>
-  </ul>
+    <h2>My Projects</h2>
+
+    <div class="projects">
+      <div class="card"><a href="about-me-page/">About Me Page</a></div>
+      <div class="card"><a href="anime-website/">Anime Website</a></div>
+      <div class="card"><a href="biography-of-a-leader/">Biography of a Leader</a></div>
+      <div class="card"><a href="blog-article/">Blog Article</a></div>
+      <div class="card"><a href="demon-slayer-anime-characters/">Demon Slayer Characters</a></div>
+      <div class="card"><a href="full-stack-developer-curriculum/">Full Stack Curriculum</a></div>
+      <div class="card"><a href="online-shopping-mini-website/">Online Shopping Website</a></div>
+      <div class="card"><a href="photo-gallery/">Photo Gallery</a></div>
+      <div class="card"><a href="recipe-website/">Recipe Website</a></div>
+      <div class="card"><a href="science-formula-web-page/">Science Formula Page</a></div>
+      <div class="card"><a href="solar-system-website/">Solar System Website</a></div>
+    </div>
+
+    <footer>
+      © Sheela Gowthami
+    </footer>
+
+  </div>
 </body>
 </html>
