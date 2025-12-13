@@ -1,51 +1,71 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
-  margin: 0;
-  padding: 0;
+
+* {
+  box-sizing: border-box;
 }
 
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Header */
 h1 {
   text-align: center;
-  color: #333;
+  color: #1f2937;
+  margin-bottom: 5px;
 }
 
 h3 {
   text-align: center;
-  color: #555;
+  color: #4b5563;
+  font-weight: normal;
+  margin-top: 0;
 }
 
 p {
   text-align: center;
-  color: #444;
+  color: #374151;
+  max-width: 600px;
+  margin: 10px auto 20px;
 }
 
+/* Project section */
 h2 {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
+  color: #111827;
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  max-width: 400px;
-  margin: auto;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 li {
-  background: white;
-  margin: 10px 0;
-  padding: 10px;
+  background: #ffffff;
+  margin-bottom: 12px;
+  padding: 14px;
+  border-radius: 8px;
   text-align: center;
-  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
 
+li:hover {
+  transform: scale(1.03);
+}
+
+/* Links */
 a {
   text-decoration: none;
-  color: #0066cc;
-  font-weight: bold;
+  color: #2563eb;
+  font-weight: 600;
 }
 
 a:hover {
-  color: #003366;
+  color: #1e40af;
 }
