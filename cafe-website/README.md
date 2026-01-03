@@ -13,6 +13,5 @@ A simple restaurant website built using HTML.
 
 ## Live Demo
 
-
 ## Author
 Sheela Gowthami
