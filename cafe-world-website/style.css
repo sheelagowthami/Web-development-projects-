@@ -1,0 +1,88 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+}
+.navbar{
+    justify-content:center;
+    text-align:center;
+    padding:16px 32px;
+    align-items: center;
+    background-color:chocolate;
+}
+.logo{
+    color:blue;
+    font-size:40px;
+}
+.nav-links a{
+    color:fuchsia;
+    margin: 10px 15px;
+    font-weight: bold;
+    font-size:25px;
+}
+nav  a:hover {
+    color:lightpink;
+    text-decoration: underline;
+}
+.home{
+    text-align: center;
+    background-color: wheat;
+    padding:60px;
+}
+h2{
+    color:darkviolet;
+    font-size:28px;
+}
+p{
+    color:deepskyblue;
+    font-size:20px;
+}
+
+.menu{
+   padding:40px;
+   text-align:center;
+   background-color:coral;
+}
+.menu-item {
+    margin-bottom: 30px;
+}
+h3{
+    font-size:20px;
+}
+.card{
+    width:200px;
+    margin:0 auto 10px;
+    padding:20px;
+    background-color:cyan;
+    border-radius: 8px;
+    font-size:20px ;
+    transition: background-color 0.5s ease;
+}
+.card:hover{
+    background-color: violet;
+}
+.btn{
+    padding:12px 20px;
+    background-color:red;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:20px;
+    transition:background-color 0.3s ease;
+}
+.btn:hover{
+    background-color:deeppink;
+}
+.footer{
+    text-align: center;
+    padding:16px;
+    background-color:wheat;
+    color: black;  
+}
+@media(max-width:600px){
+    .navbar{
+        flex-direction:column;
+    }
+    .nav-links a{
+        margin:10px;
+    }
+}
