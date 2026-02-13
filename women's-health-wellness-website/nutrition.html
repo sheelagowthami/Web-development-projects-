@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women’s Health & Wellness | Online Wellness Planner</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2>🌸 Wellness Planner</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#formSection">Register</a></li>
+            <li><a href="#resultSection">My Plan</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <h1>Women’s Health & Wellness</h1>
+        <p>Online Nutrition, Fitness & Yoga Classes for Women</p>
+        <button onclick="showForm()">Get Started</button>
+    </header>
+
+    <!-- About -->
+    <section class="about">
+        <h2>Your Personal Wellness Guide 🌸</h2>
+        <p>
+            This platform provides online wellness classes and personalized
+            diet & fitness plans for women based on their lifestyle and goals.
+            Designed especially for students, working women, and homemakers.
+        </p>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="card">
+            🥗
+            <h3>Nutrition Guidance</h3>
+            <p>Simple diet plans for daily life</p>
+        </div>
+        <div class="card">
+            🧘
+            <h3>Yoga & Meditation</h3>
+            <p>Stress relief & flexibility</p>
+        </div>
+        <div class="card">
+            🏃
+            <h3>Fitness Classes</h3>
+            <p>Beginner-friendly exercises</p>
+        </div>
+        <div class="card">
+            ⏰
+            <h3>Daily Reminders</h3>
+            <p>Build healthy habits</p>
+        </div>
+    </section>
+
+    <!-- ONLINE CLASS REGISTRATION FORM -->
+    <section class="form-section" id="formSection">
+        <h2>Online Wellness Class Registration</h2>
+        <p class="sub-text">
+            Register to join our online wellness classes and get a personalized plan 🌸
+        </p>
+
+        <form id="userForm">
+
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+
+            <select id="lifestyle" required>
+                <option value="">Select Lifestyle</option>
+                <option value="Student">Student</option>
+                <option value="Working">Working Professional</option>
+                <option value="Homemaker">Homemaker</option>
+                <option value="Employee">Employee</option>
+            </select>
+
+            <select id="classType" required>
+                <option value="">Select Online Class</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Nutrition">Nutrition Guidance</option>
+            </select>
+
+            <select id="goal" required>
+                <option value="">Select Health Goal</option>
+                <option value="loss">Weight Loss</option>
+                <option value="fit">Stay Fit</option>
+                <option value="stress">Stress Management</option>
+            </select>
+
+            <select id="time" required>
+                <option value="">Preferred Class Time</option>
+                <option value="Morning">Morning</option>
+                <option value="Evening">Evening</option>
+            </select>
+
+            <button type="submit">Register & Generate My Wellness Plan</button>
+        </form>
+    </section>
+
+    <!-- RESULT SECTION -->
+    <section class="result" id="resultSection">
+        <h2 id="welcomeText"></h2>
+
+        <div class="planner">
+            <div class="box">
+                <h3>🥗 Nutrition Plan</h3>
+                <ul id="dietPlan"></ul>
+                <p id="water"></p>
+            </div>
+
+            <div class="box">
+                <h3>🏃 Fitness / Yoga Plan</h3>
+                <ul id="fitnessPlan"></ul>
+                <p class="note">⚠️ Exercise comfortably and consult a professional if needed.</p>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips">
+            <h3>💡 Health Tips</h3>
+            <div class="tip-card">💧 Stay hydrated</div>
+            <div class="tip-card">😴 Sleep well</div>
+            <div class="tip-card">🥦 Eat balanced meals</div>
+            <div class="tip-card">🧘 Practice mindfulness</div>
+        </div>
+
+        <!-- Reminders -->
+        <div class="reminders">
+            <h3>⏰ Reminders</h3>
+            <button onclick="waterReminder()">Water</button>
+            <button onclick="exerciseReminder()">Exercise</button>
+            <button onclick="mealReminder()">Meal</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Developed by 2nd Year Engineering Student <br>
+            Women’s Webathon | Health & Wellness Project
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
