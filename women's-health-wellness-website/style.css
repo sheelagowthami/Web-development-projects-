@@ -1,0 +1,224 @@
+/* -------------------- Global Styles -------------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #fde2e4, #e0f7fa);
+    text-align: center;
+    color: #333;
+}
+
+/* -------------------- Navigation Bar -------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.card-link{
+    display:intial-block;
+    cursor:pointer;
+    text-decoration: none;
+    color:inherit;
+}
+.navbar h2 {
+    color: #e91e63;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.navbar li {
+    margin-left: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #e91e63;
+}
+
+/* -------------------- Hero Section -------------------- */
+.hero {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(
+        rgba(248, 187, 208, 0.85),
+        rgba(252, 228, 236, 0.85)
+    ),
+    url("women.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero h1,
+.hero p,
+.hero button {
+    position: relative;
+    z-index: 2;
+}
+
+/* -------------------- Buttons -------------------- */
+button {
+    padding: 12px 25px;
+    background-color: #e91e63;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #c2185b;
+    transform: scale(1.05);
+}
+
+/* -------------------- About Section -------------------- */
+.about {
+    padding: 40px 20px;
+}
+
+.about h2 {
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+/* -------------------- Features Section -------------------- */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 15px;
+    width: 220px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+    color: #e91e63;
+    margin: 10px 0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* -------------------- Form Section -------------------- */
+.form-section {
+    display: none;
+    padding: 50px 20px;
+    background-color: #ffffff;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.sub-text {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+form input, form select {
+    display: block;
+    margin: 12px auto;
+    padding: 12px;
+    width: 260px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #e91e63;
+}
+
+/* -------------------- Result Section -------------------- */
+.result {
+    display: none;
+    padding: 50px 20px;
+}
+
+.planner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.box h3 {
+    color: #e91e63;
+}
+
+.box h4 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.note {
+    font-size: 13px;
+    color: #777;
+}
+
+/* -------------------- Health Tips -------------------- */
+.tips {
+    margin-top: 40px;
+}
+
+.tip-card {
+    display: inline-block;
+    background-color: #e3f2fd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* -------------------- Reminders -------------------- */
+.reminders {
+    margin-top: 30px;
+}
+
+.reminders button {
+    margin: 8px;
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+    background-color: #f8bbd0;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #444;
+}
