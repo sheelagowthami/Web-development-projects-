@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #a0e9ff, #f0f8ff);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    transition: 0.3s;
+}
+
+body.dark {
+    background: #121212;
+    color: #eee;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 450px;
+    transition: 0.3s;
+}
+
+body.dark .container {
+    background-color: #1e1e1e;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+body.dark h1 {
+    color: #eee;
+}
+
+.input-section {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="time"], select {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+button {
+    padding: 10px 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#clear-all {
+    background-color: #f44336;
+}
+
+#clear-all:hover {
+    background-color: #d32f2f;
+}
+
+#theme-toggle {
+    background-color: #2196f3;
+}
+
+#theme-toggle:hover {
+    background-color: #1976d2;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+body.dark li {
+    border-bottom: 1px solid #555;
+}
+
+li:hover {
+    background-color: #f1f1f1;
+}
+
+body.dark li:hover {
+    background-color: #333;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+li button {
+    background-color: red;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+li button:hover {
+    background-color: darkred;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 12px;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 6px;
+    transition: width 0.3s;
+}
+
+/* Category Colors */
+li[data-category="Work"] { background-color: #ffe0b2; }
+li[data-category="Study"] { background-color: #b3e5fc; }
+li[data-category="Health"] { background-color: #c8e6c9; }
+li[data-category="Personal"] { background-color: #f8bbd0; }
