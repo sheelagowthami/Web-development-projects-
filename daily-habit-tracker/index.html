@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultimate Daily Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Habit Tracker</h1>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <input type="text" id="task-input" placeholder="Enter a new task">
+            <input type="time" id="task-time">
+            <select id="task-category">
+                <option value="Work">Work</option>
+                <option value="Study">Study</option>
+                <option value="Health">Health</option>
+                <option value="Personal">Personal</option>
+            </select>
+            <select id="task-priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <!-- Task Info -->
+        <div class="task-info">
+            <span id="task-counter">0/0 tasks completed</span>
+            <button id="clear-all">Clear All</button>
+            <button id="theme-toggle">Dark Mode</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <!-- Task List -->
+        <ul id="task-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
