@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Expense Tracker Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>💰 Smart Expense Tracker</h1>
+
+  <div class="user-box">
+    <input id="username" placeholder="Enter your name">
+    <button onclick="initUser()">Start</button>
+  </div>
+
+  <div id="app" style="display:none;">
+
+    <h3 id="welcome"></h3>
+
+    <div class="cards">
+      <div class="card balance">Balance<br>₹<span id="balance">0</span></div>
+      <div class="card income">Income<br>₹<span id="income">0</span></div>
+      <div class="card expense">Expense<br>₹<span id="expense">0</span></div>
+    </div>
+
+    <form id="form">
+      <input type="text" id="category" placeholder="Category" required>
+      <input type="number" id="amount" placeholder="Amount" required>
+
+      <select id="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+      <button>Add Transaction</button>
+    </form>
+
+    <ul id="list"></ul>
+
+    <canvas id="chart"></canvas>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
