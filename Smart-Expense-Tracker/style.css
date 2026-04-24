@@ -1,0 +1,91 @@
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg,#74ebd5,#9face6);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 380px;
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-align: center;
+}
+
+.user-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-box input {
+  flex: 1;
+  padding: 10px;
+}
+
+.user-box button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.card {
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
+
+.balance { background: #333; }
+.income { background: green; }
+.expense { background: red; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+}
+
+button {
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f2f2f2;
+  margin: 5px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.income { border-left: 5px solid green; }
+.expense { border-left: 5px solid red; }
