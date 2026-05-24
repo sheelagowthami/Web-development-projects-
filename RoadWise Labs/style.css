@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    color:#333;
+}
+
+/* Header */
+
+header{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+header h1{
+    font-size:38px;
+}
+
+header p{
+    margin-top:8px;
+    font-size:18px;
+}
+
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.sos-btn{
+    background:#dc3545;
+    color:white;
+    border:none;
+    padding:16px 35px;
+    font-size:20px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.sos-btn:hover{
+    background:#b02a37;
+}
+
+/* Services */
+
+.services{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.services h2{
+    margin-bottom:30px;
+    font-size:30px;
+}
+
+.card-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:260px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-bottom:18px;
+    color:#555;
+}
+
+.card button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#084298;
+}
+
+/* Guidance */
+
+.guidance{
+    padding:60px 20px;
+}
+
+.guidance h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+.tips-box{
+    background:white;
+    max-width:700px;
+    margin:auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.guidance ul{
+    line-height:2;
+}
+
+/* Footer */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+    .hero h2{
+        font-size:28px;
+    }
+
+    .card{
+        width:90%;
+    }
+}
