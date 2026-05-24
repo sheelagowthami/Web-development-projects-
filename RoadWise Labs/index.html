@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoadWise Labs - Smart Emergency Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🚑 RoadWise Labs</h1>
+    <p>Smart Emergency Assistant</p>
+</header>
+
+<section class="hero">
+    <h2>Road Accident Emergency Support</h2>
+    <p>Fast help for hospitals, ambulance, police and emergency guidance.</p>
+
+    <button class="sos-btn" onclick="activateSOS()">
+        🚨 Activate SOS
+    </button>
+</section>
+
+<section class="services">
+
+    <h2>Emergency Services</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>🏥 Nearby Hospitals</h3>
+            <p>Open Google Maps to find nearby hospitals.</p>
+            <button onclick="openHospital()">Open Maps</button>
+        </div>
+
+        <div class="card">
+            <h3>🚑 Ambulance</h3>
+            <p>Emergency ambulance support.</p>
+            <button onclick="callAmbulance()">Call 108</button>
+        </div>
+
+        <div class="card">
+            <h3>👮 Police</h3>
+            <p>Quick police emergency contact.</p>
+            <button onclick="callPolice()">Call 100</button>
+        </div>
+
+        <div class="card">
+            <h3>🆘 Emergency Contact</h3>
+            <p>Guardian / family emergency support.</p>
+            <button onclick="callGuardian()">Call Contact</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="guidance">
+
+    <h2>Emergency Guidance</h2>
+
+    <div class="tips-box">
+        <ul>
+            <li>Stay calm and move to a safe area.</li>
+            <li>Call emergency services immediately.</li>
+            <li>Avoid moving seriously injured persons.</li>
+            <li>Use first aid only if safe and trained.</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    <p>RoadWise Labs © 2026 | RoadSoS Hackathon Prototype</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
