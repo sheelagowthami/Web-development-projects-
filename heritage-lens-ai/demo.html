@@ -1,43 +1,32 @@
+<!-- demo.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AI Demo - HeritageLens</title>
-<link rel="stylesheet" href="style.css"/>
+<title>HeritageLens Demo</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<nav class="navbar">
-  <div class="logo">🏛️ HeritageLens AI</div>
+<nav class="navbar sticky">
+  <div class="logo">HeritageLens AI</div>
 </nav>
-
-<section class="section">
-
-  <h1>Heritage AI Scanner</h1>
-
-  <button class="btn primary" onclick="openScanner()">📷 Scan Monument</button>
-
-  <input type="file" id="scanner" accept="image/*" hidden onchange="handleScan(event)"/>
-
-  <div class="glass">
-    <h2>AI Result</h2>
-    <div id="aiOutput">Scan a monument to begin analysis...</div>
+<section class="demo-section">
+  <div class="demo-header">
+    <h2>Heritage Insights</h2>
+    <button id="scanButton" class="btn-primary">SCAN IMAGE</button>
+    <button id="listenBtn" class="btn-secondary">🔊 Listen</button>
+    <button id="stopBtn" class="btn-secondary">Stop</button>
   </div>
-
-  <div class="glass">
-    <h2>🗺️ Map</h2>
-    <iframe id="mapFrame" width="100%" height="300"></iframe>
+  <div class="demo-content">
+    <div id="recognizedInfo" class="info-box"></div>
+    <div id="mapContainer" class="map-box"></div>
+    <div id="aiResponse" class="response-box"></div>
   </div>
-
-  <button class="btn secondary" onclick="speakText()">🔊 Listen</button>
-  <button class="btn secondary" onclick="stopSpeech()">⏹ Stop</button>
-
 </section>
 
-<div id="modal" class="modal" onclick="closeModal()">
-  <img id="modalImg"/>
-</div>
+<!-- Hidden file input for Scan button -->
+<input type="file" accept="image/*" id="imageInput" style="display:none" />
 
 <script src="script.js"></script>
 </body>
