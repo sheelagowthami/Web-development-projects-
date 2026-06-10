@@ -1,10 +1,20 @@
 const chat = document.getElementById("chat");
 
-let lastResponse = "";
+let memory = [];
+let lastAnswer = "";
 
-/* ---------------- CHAT ---------------- */
+/* ---------------- AI CORE ---------------- */
 
-function addMsg(text, type) {
+/*
+  LEVEL 3 AI SYSTEM:
+  - If API key exists → real AI (OpenAI)
+  - Else → smart fallback AI engine
+*/
+
+const OPENAI_API_KEY = ""; // 🔴 optional (leave empty for fallback mode)
+
+/* ADD MESSAGE */
+function add(text, type) {
   const div = document.createElement("div");
   div.className = "msg " + type;
   div.innerText = text;
@@ -12,103 +22,137 @@ function addMsg(text, type) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-/* TYPEWRITER AI */
-function typeMessage(text, type) {
+/* ---------------- REAL AI CALL ---------------- */
+async function askAI(prompt) {
+  if (!OPENAI_API_KEY) {
+    return fallbackAI(prompt);
+  }
+
+  try {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + OPENAI_API_KEY
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: "You are a heritage tourism AI expert." },
+          ...memory,
+          { role: "user", content: prompt }
+        ]
+      })
+    });
+
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || "No response.";
+  } catch (e) {
+    return fallbackAI(prompt);
+  }
+}
+
+/* ---------------- FALLBACK AI ---------------- */
+function fallbackAI(text) {
+  text = text.toLowerCase();
+
+  if (text.includes("taj")) {
+    return "The Taj Mahal is a Mughal masterpiece built by Shah Jahan in memory of Mumtaz Mahal.";
+  }
+
+  if (text.includes("red fort")) {
+    return "The Red Fort in Delhi was built by Shah Jahan and represents Mughal power.";
+  }
+
+  if (text.includes("charminar")) {
+    return "Charminar is a symbol of Hyderabad built in 1591.";
+  }
+
+  return "AI is learning. Try Taj Mahal, Red Fort, or Charminar.";
+}
+
+/* ---------------- CHAT SEND ---------------- */
+async function send() {
+  const input = document.getElementById("input");
+  const text = input.value;
+  if (!text) return;
+
+  add(text, "user");
+  input.value = "";
+
+  const answer = await askAI(text);
+
+  memory.push({ role: "user", content: text });
+  memory.push({ role: "assistant", content: answer });
+
+  lastAnswer = answer;
+
+  type(answer);
+}
+
+/* ---------------- TYPE ANIMATION ---------------- */
+function type(text) {
   const div = document.createElement("div");
   div.className = "msg ai";
   chat.appendChild(div);
 
   let i = 0;
-  function type() {
+  function run() {
     if (i < text.length) {
-      div.innerHTML += text.charAt(i);
+      div.innerHTML += text[i];
       i++;
-      setTimeout(type, 20);
+      setTimeout(run, 15);
     }
   }
-  type();
-}
-
-/* SIMPLE AI ENGINE */
-function getAI(input) {
-  input = input.toLowerCase();
-
-  if (input.includes("taj")) {
-    return "The Taj Mahal was built by Shah Jahan in memory of Mumtaz Mahal. It is one of the Seven Wonders of the World.";
-  }
-
-  if (input.includes("charminar")) {
-    return "Charminar is a historic monument built in 1591 in Hyderabad by Muhammad Quli Qutb Shah.";
-  }
-
-  if (input.includes("red fort")) {
-    return "The Red Fort is a UNESCO World Heritage Site built by Shah Jahan in Delhi.";
-  }
-
-  return "I am still learning. Try asking about Taj Mahal, Charminar, or Red Fort.";
-}
-
-/* SEND MESSAGE */
-function sendMessage() {
-  const input = document.getElementById("userInput");
-  const text = input.value;
-  if (!text) return;
-
-  addMsg(text, "user");
-  input.value = "";
-
-  const reply = getAI(text);
-  lastResponse = reply;
-
-  setTimeout(() => {
-    typeMessage(reply, "ai");
-  }, 600);
-}
-
-/* ---------------- LENS SCAN ---------------- */
-
-function lensScan() {
-  const input = document.getElementById("lensInput");
-  const status = document.getElementById("scanStatus");
-
-  if (!input.value) return;
-
-  status.innerHTML = "🔍 Scanning...";
-  status.className = "scan";
-
-  setTimeout(() => {
-    status.innerHTML = "✔ Monument Identified: " + input.value;
-    status.className = "";
-
-    const reply = getAI(input.value);
-    lastResponse = reply;
-
-    typeMessage("📷 Lens AI: " + reply, "ai");
-  }, 2000);
+  run();
 }
 
 /* ---------------- VOICE ---------------- */
+function startVoice() {
+  if (!lastAnswer) return;
 
-function speakLast() {
-  if (!lastResponse) return;
-
-  const speech = new SpeechSynthesisUtterance(lastResponse);
+  const speech = new SpeechSynthesisUtterance(lastAnswer);
   speech.rate = 1;
   speech.pitch = 1;
   window.speechSynthesis.speak(speech);
 }
 
-function stopSpeech() {
+function stopVoice() {
   window.speechSynthesis.cancel();
 }
 
-/* ---------------- IMAGE MODAL DEMO ---------------- */
+/* ---------------- LENS AI ---------------- */
+async function lens() {
+  const val = document.getElementById("lens").value;
+  const scan = document.getElementById("scan");
 
-function openModal(img) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalImg").src = img;
+  scan.innerHTML = "🔍 Scanning...";
+
+  const result = await askAI("Explain monument: " + val);
+
+  scan.innerHTML = "✔ " + val + " identified";
+
+  add("📷 Lens AI: " + result, "ai");
+
+  lastAnswer = result;
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+/* ---------------- MAP ---------------- */
+function showMap(place) {
+  const map = document.getElementById("map");
+  map.innerHTML =
+    `<a target="_blank"
+      href="https://www.google.com/maps/search/${place}">
+      📍 Open ${place} in Google Maps
+    </a>`;
 }
+
+/* auto map trigger */
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("msg")) {
+    const text = e.target.innerText;
+    if (text.includes("Taj")) showMap("Taj Mahal");
+    if (text.includes("Red Fort")) showMap("Red Fort Delhi");
+    if (text.includes("Charminar")) showMap("Charminar Hyderabad");
+  }
+});
