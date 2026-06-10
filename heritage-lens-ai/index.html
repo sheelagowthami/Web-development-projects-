@@ -3,95 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI — Explore History Instantly</title>
-
+  <title>HeritageLens AI v2</title>
   <link rel="stylesheet" href="style.css"/>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="bg-gradient"></div>
+<div class="bg"></div>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">
-    🏛️ HeritageLens <span class="ai">AI</span>
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#" class="active">Home</a>
+    <a href="#features">Features</a>
+    <a href="#demo">AI Demo</a>
   </div>
-
-  <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="features.html">Features</a>
-    <a href="about.html">About</a>
-    <a href="demo.html" class="cta">Try AI</a>
-  </div>
+  <div class="menu" onclick="toggleMenu()">☰</div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
-
-  <div class="hero-box glass">
-
-    <div class="badge">⚡ AI POWERED HERITAGE EXPLORER</div>
-
-    <h1>
-      Ask anything about<br>
-      <span class="gradient-text">India’s history</span>
-    </h1>
-
-    <p>
-      Instantly understand monuments, stories, kings, architecture, and hidden history using AI.
-    </p>
-
-    <!-- AI SEARCH INPUT -->
-    <div class="ai-search">
-      <input type="text" placeholder="Try: Tell me about Taj Mahal..." />
-      <button>Ask AI →</button>
-    </div>
-
-    <!-- QUICK SUGGESTIONS -->
-    <div class="chips">
-      <span>Red Fort</span>
-      <span>Taj Mahal</span>
-      <span>Hampi</span>
-      <span>Konark Temple</span>
-    </div>
-
-  </div>
-
+  <h1>
+    AI That Brings <span class="grad">Heritage Alive</span>
+  </h1>
+  <p>
+    Explore monuments with conversational AI, voice narration, and smart visual recognition simulation.
+  </p>
+  <a class="btn" href="#demo">Try AI Demo</a>
 </header>
 
-<!-- FEATURE PREVIEW -->
-<section class="preview">
+<!-- FEATURES -->
+<section id="features">
+  <h2>🔥 Core Features</h2>
 
-  <div class="card glass">
-    🤖 AI Storytelling
-    <p>Human-like historical explanations</p>
+  <div class="grid">
+    <div class="card">🤖 AI Heritage Chat</div>
+    <div class="card">📷 Lens Scan Mode</div>
+    <div class="card">🗺️ Smart Map Simulation</div>
+    <div class="card">🔊 Voice Narration</div>
+    <div class="card">🖼️ Visual Gallery</div>
+    <div class="card">💬 Memory Context AI</div>
   </div>
-
-  <div class="card glass">
-    📷 Lens Mode
-    <p>Scan monuments like Google Lens</p>
-  </div>
-
-  <div class="card glass">
-    🗺️ Smart Map
-    <p>Explore locations instantly</p>
-  </div>
-
 </section>
 
-<!-- CTA -->
-<section class="cta-section glass">
-  <h2>Experience Heritage Like Never Before</h2>
-  <a href="demo.html" class="btn">Launch AI Demo</a>
+<!-- DEMO -->
+<section id="demo">
+  <h2>🎯 AI Experience</h2>
+
+  <div class="chat-box">
+    <div id="chat"></div>
+
+    <div class="input-box">
+      <input id="userInput" placeholder="Ask about any monument..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>HeritageLens AI — Built for Smart Cultural Exploration</p>
+  <p>HeritageLens AI • Portfolio Project Upgrade</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
