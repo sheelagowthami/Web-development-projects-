@@ -1,119 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Features — HeritageLens AI</title>
-
+  <title>Features - HeritageLens AI</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-<div class="bg-gradient"></div>
+<div class="bg"></div>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-brand">🏛️ HeritageLens <span class="ai">AI</span></div>
-
-  <div class="nav-links">
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <div>
     <a href="index.html">Home</a>
-    <a href="features.html" class="active">Features</a>
     <a href="about.html">About</a>
-    <a href="demo.html" class="cta">Try AI</a>
+    <a href="demo.html">Demo</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<header class="hero">
+  <h1>🔥 Key <span class="grad">Features</span></h1>
+</header>
 
-  <div class="glass hero-box">
+<section class="app">
 
-    <h1>
-      Six AI Modes.<br>
-      <span class="gradient-text">One Intelligent System</span>
-    </h1>
+  <div class="panel">
+    <h3>🤖 AI Chat Engine</h3>
+    <p>Ask questions about monuments and get intelligent responses.</p>
+  </div>
 
-    <p>
-      HeritageLens AI is not a website — it is an interactive cultural intelligence system.
-    </p>
+  <div class="panel">
+    <h3>📸 Vision AI (Simulation)</h3>
+    <p>Upload or capture images and identify monuments using AI logic.</p>
+  </div>
 
+  <div class="panel">
+    <h3>🧠 Memory System</h3>
+    <p>AI remembers your conversation history during session.</p>
+  </div>
+
+  <div class="panel">
+    <h3>🔊 Voice AI</h3>
+    <p>Listen to AI responses using built-in speech synthesis.</p>
   </div>
 
 </section>
-
-<!-- FEATURES GRID -->
-<section class="features">
-
-  <div class="feature-card glass">
-    🤖 AI Story Engine
-    <p>Ask any monument and get human-like storytelling responses.</p>
-  </div>
-
-  <div class="feature-card glass">
-    📷 Lens Scan Mode
-    <p>Point, scan, and instantly identify historical monuments.</p>
-  </div>
-
-  <div class="feature-card glass">
-    🔊 Voice Narration
-    <p>Listen to history like a museum audio guide.</p>
-  </div>
-
-  <div class="feature-card glass">
-    🗺️ Smart Map System
-    <p>See real-world locations and nearby heritage places.</p>
-  </div>
-
-  <div class="feature-card glass">
-    🖼️ Visual Gallery AI
-    <p>Auto-generated image-based storytelling experience.</p>
-  </div>
-
-  <div class="feature-card glass">
-    💬 Memory Chat System
-    <p>AI remembers previous monument conversations.</p>
-  </div>
-
-</section>
-
-<!-- INTERACTIVE DEMO STRIP -->
-<section class="demo-strip glass">
-
-  <h2>Try Feature Simulation</h2>
-
-  <div class="demo-box">
-    <input id="demoInput" placeholder="Type: Taj Mahal" />
-    <button onclick="runDemo()">Run AI Scan</button>
-  </div>
-
-  <div id="demoOutput" class="output"></div>
-
-</section>
-
-<!-- SCRIPT -->
-<script>
-function runDemo() {
-  const input = document.getElementById("demoInput").value.toLowerCase();
-  const output = document.getElementById("demoOutput");
-
-  output.innerHTML = "Scanning...";
-
-  setTimeout(() => {
-
-    if (input.includes("taj")) {
-      output.innerHTML = "🏛️ Taj Mahal detected → Built by Shah Jahan in memory of Mumtaz Mahal.";
-    }
-    else if (input.includes("red")) {
-      output.innerHTML = "🏰 Red Fort detected → Mughal imperial residence in Delhi.";
-    }
-    else {
-      output.innerHTML = "⚠️ Monument not found in AI database (demo mode).";
-    }
-
-  }, 1200);
-}
-</script>
 
 </body>
 </html>
