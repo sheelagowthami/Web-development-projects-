@@ -1,43 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HeritageLens AI</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HeritageLens AI</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 
+<!-- NAV -->
 <header class="navbar">
   <div class="logo">🏛️ HeritageLens AI</div>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
+    <a href="demo.html">AI Demo</a>
     <a href="about.html">About</a>
-    <a href="demo.html" class="btn-small">Try AI</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Explore Heritage with <span>AI Intelligence</span></h1>
-    <p>Smart Tourism • Voice AI • Monument Recognition • Interactive Learning</p>
-    <a href="demo.html" class="btn">Start Exploring</a>
+    <h1>Explore India’s Heritage with AI</h1>
+    <p>Discover monuments with intelligent storytelling, voice narration & AI-powered cultural insights.</p>
+    <a href="demo.html" class="btn-primary">Try AI Demo</a>
   </div>
 </section>
 
-<section class="cards">
-  <div class="card">🤖 AI Heritage Chat</div>
-  <div class="card">📷 Smart Lens Scan</div>
-  <div class="card">🗺️ Live Map Guide</div>
-  <div class="card">🔊 Voice Narration</div>
+<!-- FEATURES PREVIEW -->
+<section class="section">
+  <h2 class="section-title">AI-Powered Experiences</h2>
+
+  <div class="grid">
+    <div class="card glow">
+      <h3>🤖 AI Chat Guide</h3>
+      <p>Ask anything about Indian heritage in real time.</p>
+    </div>
+
+    <div class="card glow">
+      <h3>📷 Heritage Lens</h3>
+      <p>Scan monuments & get instant AI explanations.</p>
+    </div>
+
+    <div class="card glow">
+      <h3>🗺️ Smart Maps</h3>
+      <p>Explore locations with intelligent map routing.</p>
+    </div>
+
+    <div class="card glow">
+      <h3>🔊 Voice Narration</h3>
+      <p>Listen to historical stories in natural voice.</p>
+    </div>
+  </div>
 </section>
 
-<footer>
-  <p>© 2026 HeritageLens AI • Built for Smart Tourism</p>
+<!-- MONUMENT PREVIEW -->
+<section class="section dark">
+  <h2 class="section-title">Iconic Monuments</h2>
+
+  <div class="grid">
+    <div class="card" onclick="openModal('Taj Mahal')">
+      <h3>Taj Mahal</h3>
+      <p>Symbol of eternal love built by Shah Jahan.</p>
+    </div>
+
+    <div class="card" onclick="openModal('Red Fort')">
+      <h3>Red Fort</h3>
+      <p>Historic Mughal fort of Delhi.</p>
+    </div>
+
+    <div class="card" onclick="openModal('Charminar')">
+      <h3>Charminar</h3>
+      <p>Iconic symbol of Hyderabad.</p>
+    </div>
+
+    <div class="card" onclick="openModal('Hampi')">
+      <h3>Hampi</h3>
+      <p>Ancient Vijayanagara ruins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 HeritageLens AI | Built for cultural preservation</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
