@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -15,8 +15,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 20%, #2d5a3d55, transparent),
-    radial-gradient(circle at 80% 80%, #c9a84c33, transparent);
+    radial-gradient(circle at 20% 20%, rgba(45,90,61,0.4), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(201,168,76,0.3), transparent 60%);
   z-index: -1;
 }
 
@@ -25,79 +25,78 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 15px;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
+}
+
+button {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #ffd36b;
+  cursor: pointer;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 50px;
+  padding: 40px;
 }
 
+/* FIXED TEXT GRADIENT (NO ERROR VERSION) */
 .grad {
   background: linear-gradient(90deg, #ffd36b, #ff9f43);
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 /* LAYOUT */
-.layout {
+.app {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
 }
 
+/* PANEL */
 .panel {
   background: rgba(255,255,255,0.05);
   padding: 15px;
   border-radius: 12px;
 }
 
+/* VIDEO */
+video {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 /* CHAT */
 #chat {
   height: 300px;
   overflow-y: auto;
-  margin-bottom: 10px;
 }
 
 .msg {
   margin: 6px 0;
 }
 
-.user { text-align: right; color: #ffd36b; }
-.ai { text-align: left; color: #a8ffce; }
+.user { color: #ffd36b; text-align: right; }
+.ai { color: #a8ffce; }
 
 /* INPUT */
-.input-row {
-  display: flex;
-  gap: 10px;
-}
-
 input {
-  flex: 1;
+  width: 100%;
   padding: 10px;
+  margin: 10px 0;
   border-radius: 8px;
   border: none;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  background: #ffd36b;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-/* MAP */
-#map a {
-  color: #ffd36b;
-  text-decoration: none;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .layout {
+  .app {
     grid-template-columns: 1fr;
   }
 }
