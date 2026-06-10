@@ -8,19 +8,19 @@
 body {
   background: #0b1426;
   color: white;
-  overflow-x: hidden;
 }
 
-/* background */
+/* BACKGROUND */
 .bg {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, #2d5a3d55, transparent),
-              radial-gradient(circle at 80% 80%, #c9a84c33, transparent);
+  background:
+    radial-gradient(circle at 20% 20%, #2d5a3d55, transparent),
+    radial-gradient(circle at 80% 80%, #c9a84c33, transparent);
   z-index: -1;
 }
 
-/* nav */
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
@@ -28,16 +28,10 @@ nav {
   background: rgba(0,0,0,0.4);
 }
 
-.nav-links a {
-  color: #aaa;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-/* hero */
+/* HERO */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 50px;
 }
 
 .grad {
@@ -46,37 +40,35 @@ nav {
   color: transparent;
 }
 
-/* layout */
-.container {
-  display: flex;
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   gap: 20px;
   padding: 20px;
-  flex-wrap: wrap;
 }
 
-/* chat */
-.chat-box {
-  flex: 2;
-  min-width: 300px;
+.panel {
   background: rgba(255,255,255,0.05);
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
+/* CHAT */
 #chat {
-  height: 350px;
+  height: 300px;
   overflow-y: auto;
-  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .msg {
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .user { text-align: right; color: #ffd36b; }
 .ai { text-align: left; color: #a8ffce; }
 
-/* input */
+/* INPUT */
 .input-row {
   display: flex;
   gap: 10px;
@@ -91,57 +83,21 @@ input {
 
 button {
   padding: 10px;
-  background: #ffd36b;
   border: none;
+  background: #ffd36b;
+  cursor: pointer;
   border-radius: 8px;
-  cursor: pointer;
 }
 
-/* side panel */
-.side-panel {
-  flex: 1;
-  min-width: 250px;
-}
-
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-/* scan animation */
-.scan {
+/* MAP */
+#map a {
   color: #ffd36b;
-  animation: blink 1s infinite;
+  text-decoration: none;
 }
 
-@keyframes blink {
-  50% { opacity: 0.3; }
-}
-
-/* modal */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: #111;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.modal img {
-  width: 300px;
-}
-
-.close {
-  float: right;
-  cursor: pointer;
-  color: red;
+/* MOBILE */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 }
