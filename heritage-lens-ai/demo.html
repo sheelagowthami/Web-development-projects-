@@ -1,39 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AI Demo</title>
-<link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Demo - HeritageLens AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar sticky">
+        <div class="nav-container">
+            <div class="nav-logo"><i class="fas fa-landmark"></i><span>HeritageLens AI</span></div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="features.html" class="nav-link">Features</a></li>
+                <li><a href="demo.html" class="nav-link active">Demo</a></li>
+                <li><a href="demo.html" class="nav-cta">Try AI Demo</a></li>
+            </ul>
+            <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
 
-<header class="navbar">
-  <div class="logo">🏛️ HeritageLens AI</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="features.html">Features</a>
-    <a href="demo.html">AI Demo</a>
-    <a href="about.html">About</a>
-  </nav>
-</header>
+    <section class="demo-hero">
+        <div class="container">
+            <h1 class="hero-title gradient-text">AI Demo Experience</h1>
+            <p class="hero-subtitle">Test all HeritageLens AI features live</p>
+        </div>
+    </section>
 
-<section class="section">
-  <h1 class="section-title">Live AI Demo</h1>
+    <section class="demo-content">
+        <div class="container">
+            <div class="demo-grid">
+                <div class="chat-section glass-card">
+                    <h2><i class="fas fa-robot"></i> AI Chat System</h2>
+                    <div class="chat-container" id="chatContainer">
+                        <div class="chat-message ai-message">
+                            <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="message-content">Hello! I'm HeritageLens AI. Ask me anything about India's heritage monuments like Taj Mahal, Red Fort, Charminar, Hampi, or Qutub Minar!</div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Ask about monuments..." onkeypress="handleChatKey(event)">
+                        <button class="btn btn-primary" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                        <button class="btn btn-voice" onclick="speakLastMessage()"><i class="fas fa-volume-up"></i></button>
+                    </div>
+                </div>
 
-  <div class="chat-box">
-    <div id="chat-log" class="chat-log"></div>
+                <div class="lens-section glass-card">
+                    <h2><i class="fas fa-camera"></i> Heritage Lens AI</h2>
+                    <div class="lens-container">
+                        <div class="lens-input">
+                            <input type="text" id="lensInput" placeholder="Enter monument name to scan...">
+                            <button class="btn btn-primary" onclick="scanMonumentFromInput()"><i class="fas fa-camera"></i> Scan</button>
+                        </div>
+                        <div class="lens-result" id="lensResult" style="display:none;">
+                            <div class="scanning-animation" id="scanningAnimation">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Scanning monument...</p>
+                            </div>
+                            <div class="ai-result-card" id="aiResultCard" style="display:none;">
+                                <h3 id="resultMonumentName"></h3>
+                                <p id="resultDescription"></p>
+                                <button class="btn btn-voice" onclick="speakResult()"><i class="fas fa-volume-up"></i> Listen</button>
+                                <button class="btn btn-secondary" onclick="showMapFromResult()"><i class="fas fa-map"></i> View Map</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <input id="user-input" type="text" placeholder="Ask about Indian heritage..." />
-    
-    <div class="chat-actions">
-      <button onclick="sendMessage()">Send</button>
-      <button onclick="startScan()">Scan Monument</button>
-      <button onclick="speakText()">🔊 Speak</button>
+                <div class="map-section glass-card">
+                    <h2><i class="fas fa-map-marked-alt"></i> Smart Map</h2>
+                    <div class="map-container">
+                        <select id="monumentSelect" onchange="showMap()">
+                            <option value="">Select a monument...</option>
+                            <option value="taj-mahal">Taj Mahal</option>
+                            <option value="red-fort">Red Fort</option>
+                            <option value="charminar">Charminar</option>
+                            <option value="hampi">Hampi</option>
+                            <option value="qutub-minar">Qutub Minar</option>
+                        </select>
+                        <div class="map-preview" id="mapPreview">
+                            <p id="mapText">Select a monument to view its location</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-section glass-card">
+                    <h2><i class="fas fa-images"></i> Image Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-grid">
+                            <div class="gallery-item" onclick="openModal('taj-mahal')">
+                                <img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=400&h=300&fit=crop" alt="Taj Mahal">
+                                <span>Taj Mahal</span>
+                            </div>
+                            <div class="gallery-item" onclick="openModal('red-fort')">
+                                <img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Red Fort">
+                                <span>Red Fort</span>
+                            </div>
+                            <div class="gallery-item" onclick="openModal('charminar')">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Charminar">
+                                <span>Charminar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Monument">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <button class="btn btn-voice" onclick="speakModalText()"><i class="fas fa-volume-up"></i> Listen</button>
+        </div>
     </div>
-  </div>
-</section>
 
-<script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h4><i class="fas fa-landmark"></i> HeritageLens AI</h4><p>AI for preserving culture</p></div>
+                <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li></ul></div>
+                <div class="footer-section"><h4>Contact</h4><p><i class="fas fa-envelope"></i> info@heritagelens.ai</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 HeritageLens AI. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
