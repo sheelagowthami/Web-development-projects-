@@ -1,79 +1,24 @@
-// Shared AI state
-let lastAnswer = "";
+function askAI(){
 
-/* ---------------- CHAT SYSTEM ---------------- */
-
-function addMessage(text, type) {
+  const input = document.getElementById("input");
   const chat = document.getElementById("chat");
 
-  const div = document.createElement("div");
-  div.className = "msg " + type;
-  div.innerText = text;
-
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-}
-
-/* TYPE EFFECT */
-function typeText(text, container) {
-  let i = 0;
-  container.innerHTML = "";
-
-  function run() {
-    if (i < text.length) {
-      container.innerHTML += text[i];
-      i++;
-      setTimeout(run, 15);
-    }
-  }
-  run();
-}
-
-/* SEND MESSAGE */
-async function sendMessage() {
-  const input = document.getElementById("input");
-  if (!input) return;
-
   const text = input.value;
-  if (!text) return;
+  if(!text) return;
 
-  addMessage(text, "user");
-  input.value = "";
+  chat.innerHTML += `<div class="msg user">You: ${text}</div>`;
 
-  const reply = await askAI(text);
-  lastAnswer = reply;
+  let reply = "I am learning about this topic.";
 
-  const div = document.createElement("div");
-  div.className = "msg ai";
-
-  document.getElementById("chat").appendChild(div);
-  typeText(reply, div);
-}
-
-/* ---------------- VOICE ---------------- */
-
-function speak() {
-  if (!lastAnswer) return;
-
-  const speech = new SpeechSynthesisUtterance(lastAnswer);
-  speech.rate = 1;
-  window.speechSynthesis.speak(speech);
-}
-
-function stopSpeak() {
-  window.speechSynthesis.cancel();
-}
-
-/* ---------------- CAMERA WRAPPER ---------------- */
-
-function startCamera() {
-  if (typeof window.startCamera === "function") {
-    window.startCamera();
+  if(text.toLowerCase().includes("taj")){
+    reply = "Taj Mahal is one of the 7 wonders of the world built by Shah Jahan.";
   }
-}
 
-function capture() {
-  if (typeof window.capture === "function") {
-    window.capture();
+  if(text.toLowerCase().includes("red fort")){
+    reply = "Red Fort is a Mughal monument in Delhi symbolizing India's history.";
   }
+
+  chat.innerHTML += `<div class="msg ai">AI: ${reply}</div>`;
+
+  input.value="";
 }
