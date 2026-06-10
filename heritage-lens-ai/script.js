@@ -1,24 +1,17 @@
-function askAI(){
+function askAI() {
+  let input = document.getElementById("input").value.toLowerCase();
+  let output = document.getElementById("output");
 
-  const input = document.getElementById("input");
-  const chat = document.getElementById("chat");
-
-  const text = input.value;
-  if(!text) return;
-
-  chat.innerHTML += `<div class="msg user">You: ${text}</div>`;
-
-  let reply = "I am learning about this topic.";
-
-  if(text.toLowerCase().includes("taj")){
-    reply = "Taj Mahal is one of the 7 wonders of the world built by Shah Jahan.";
+  if (input.includes("taj")) {
+    output.innerText = "Taj Mahal is a UNESCO World Heritage Site built by Shah Jahan.";
   }
-
-  if(text.toLowerCase().includes("red fort")){
-    reply = "Red Fort is a Mughal monument in Delhi symbolizing India's history.";
+  else if (input.includes("charminar")) {
+    output.innerText = "Charminar is a symbol of Hyderabad built in 1591.";
   }
-
-  chat.innerHTML += `<div class="msg ai">AI: ${reply}</div>`;
-
-  input.value="";
+  else if (input.includes("fort")) {
+    output.innerText = "India has many forts like Red Fort, Amer Fort, and Golconda Fort.";
+  }
+  else {
+    output.innerText = "AI is learning... try Taj Mahal or Charminar.";
+  }
 }
