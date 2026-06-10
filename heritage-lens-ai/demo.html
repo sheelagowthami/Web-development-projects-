@@ -3,112 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo - HeritageLens AI</title>
+    <title>Live AI Demo — HeritageLens AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar sticky">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo"><i class="fas fa-landmark"></i><span>HeritageLens AI</span></div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="features.html" class="nav-link">Features</a></li>
-                <li><a href="demo.html" class="nav-link active">Demo</a></li>
-                <li><a href="demo.html" class="nav-cta">Try AI Demo</a></li>
-            </ul>
-            <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+            <a href="index.html" class="logo">HeritageLens <span class="ai-badge">AI</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="demo.html" class="active">AI Demo</a>
+                <a href="about.html">About</a>
+            </div>
         </div>
     </nav>
 
-    <section class="demo-hero">
-        <div class="container"><h1 class="hero-title gradient-text">AI Demo - World Heritage</h1><p class="hero-subtitle">Ask about ANY monument or upload image to scan</p></div>
-    </section>
+    <main class="demo-container">
+        <section class="demo-panel chat-panel">
+            <div class="panel-header">
+                <h3>🤖 Global Heritage Chat</h3>
+                <p>Enter any monument name in the world to extract rich historical telemetry.</p>
+            </div>
+            <div class="chat-space" id="chatSpace">
+                <div class="message ai-msg">
+                    <p>Welcome, explorer. Type one word of any landmark across the globe (e.g., "Colosseum", "Eiffel", "Machu", "Taj") and I will generate complete structural and tourist breakdowns.</p>
+                </div>
+            </div>
+            <div class="chat-controls">
+                <input type="text" id="chatInput" placeholder="Enter monument name (e.g. Petra, Giza, Louvre)..." onkeydown="if(event.key === 'Enter') sendChatMessage()">
+                <button class="btn btn-primary" onclick="sendChatMessage()">Send</button>
+            </div>
+        </section>
 
-    <section class="demo-content">
-        <div class="container">
-            <div class="demo-grid">
-                <div class="chat-section glass-card">
-                    <h2><i class="fas fa-robot"></i> AI Chat - Any Monument</h2>
-                    <div class="chat-container" id="chatContainer">
-                        <div class="chat-message ai-message"><div class="message-avatar"><i class="fas fa-robot"></i></div><div class="message-content">Hello! Ask about ANY monument in the world - Taj Mahal, Eiffel Tower, Pyramids, Colosseum, Machu Picchu, Great Wall, or any famous monument. Get complete history, builder info, when built, importance, why famous, and tourist tips!</div></div>
-                    </div>
-                    <div class="chat-input-container">
-                        <input type="text" id="chatInput" placeholder="Enter monument name (e.g., Taj Mahal, Eiffel Tower, Pyramids...)..." onkeypress="handleChatKey(event)">
-                        <button class="btn btn-primary" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-                        <button class="btn btn-voice" onclick="speakLastMessage()"><i class="fas fa-volume-up"></i></button>
+        <section class="demo-panel utility-panel">
+            <div class="lens-card-wrapper">
+                <div class="panel-header">
+                    <h3>📷 Neural Heritage Lens</h3>
+                    <p>Upload a file or selection from our global gallery to initiate structural matrix scanning.</p>
+                </div>
+                <div class="lens-dropzone">
+                    <input type="file" id="lensFileInput" accept="image/*" style="display: none;" onchange="handleLensFileSelect(event)">
+                    <button class="btn btn-secondary lens-scan-btn" onclick="triggerLensUpload()">Scan Monument Image</button>
+                    <div class="scanning-loader" id="lensLoader">
+                        <div class="spinner"></div>
+                        <p>Deconstructing visual matrix assets...</p>
                     </div>
                 </div>
-
-                <div class="lens-section glass-card">
-                    <h2><i class="fas fa-camera"></i> Image Scanner</h2>
-                    <div class="lens-container">
-                        <div class="lens-upload">
-                            <label for="imageUpload" class="btn btn-secondary"><i class="fas fa-upload"></i> Upload Monument Image</label>
-                            <input type="file" id="imageUpload" accept="image/*" style="display:none" onchange="handleImageUpload()">
-                        </div>
-                        <div class="lens-scan-btn">
-                            <button class="btn btn-primary btn-glow" onclick="scanSelectedImage()"><i class="fas fa-camera"></i> SCAN</button>
-                        </div>
-                        <div class="lens-result" id="lensResult" style="display:none">
-                            <div class="scanning-animation" id="scanningAnimation"><i class="fas fa-spinner fa-spin"></i><p>Scanning monument...</p></div>
-                            <div class="ai-result-card" id="aiResultCard" style="display:none"><h3 id="resultMonumentName"></h3><p id="resultDescription"></p><button class="btn btn-voice" onclick="speakResult()"><i class="fas fa-volume-up"></i> Listen</button><button class="btn btn-secondary" onclick="showMapFromResult()"><i class="fas fa-map"></i> View Map</button></div>
-                        </div>
+                
+                <div class="lens-output" id="lensOutput">
+                    <h4 id="lensTitle">System Ready</h4>
+                    <div class="speech-action-bar">
+                        <button class="btn-speech" id="speakBtn" onclick="narrateOutput()">🔊 Listen</button>
+                        <button class="btn-speech btn-stop" id="stopBtn" onclick="stopNarration()">⏹ Stop</button>
                     </div>
+                    <div class="lens-text-body" id="lensText">Select an image from local storage or pick an asset from the world gallery grid below to auto-inject analysis.</div>
+                    <div id="lensMapContainer"></div>
                 </div>
+            </div>
 
-                <div class="map-section glass-card">
-                    <h2><i class="fas fa-map-marked-alt"></i> Smart Map</h2>
-                    <div class="map-container">
-                        <select id="monumentSelect" onchange="showMap()"><option value="">Select monument...</option><option value="taj-mahal">Taj Mahal</option><option value="eiffel-tower">Eiffel Tower</option><option value="pyramids-giza">Pyramids of Giza</option><option value="colosseum">Colosseum</option><option value="machu-picchu">Machu Picchu</option><option value="christ-redeemer">Christ the Redeemer</option><option value="great-wall">Great Wall of China</option><option value="sagrada-familia">Sagrada Familia</option><option value="red-fort">Red Fort</option><option value="charminar">Charminar</option></select>
-                        <div class="map-preview" id="mapPreview"><p>Select monument to view location</p></div>
+            <div class="world-gallery-wrapper">
+                <div class="panel-header">
+                    <h3>🖼️ Connected World Gallery</h3>
+                    <p>Click any high-resolution image asset below to load directly into the Neural Lens analyzer.</p>
+                </div>
+                <div class="world-gallery-grid">
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Colosseum', 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=300&q=80" alt="Colosseum">
+                        <div class="thumb-label">Colosseum, Italy</div>
                     </div>
-                </div>
-
-                <div class="gallery-section glass-card">
-                    <h2><i class="fas fa-images"></i> World Heritage Gallery</h2>
-                    <div class="gallery-container">
-                        <div class="gallery-grid">
-                            <div class="gallery-item" onclick="openModal('taj-mahal')"><img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=400&h=300&fit=crop" alt="Taj"><span>Taj Mahal</span></div>
-                            <div class="gallery-item" onclick="openModal('eiffel-tower')"><img src="https://images.unsplash.com/photo-1543349689-9a4d401aad4b?w=400&h=300&fit=crop" alt="Eiffel"><span>Eiffel Tower</span></div>
-                            <div class="gallery-item" onclick="openModal('pyramids-giza')"><img src="https://images.unsplash.com/photo-1503736334956-4c8e95959363?w=400&h=300&fit=crop" alt="Pyramids"><span>Pyramids</span></div>
-                            <div class="gallery-item" onclick="openModal('colosseum')"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=300&fit=crop" alt="Colosseum"><span>Colosseum</span></div>
-                            <div class="gallery-item" onclick="openModal('machu-picchu')"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=400&h=300&fit=crop" alt="Machu"><span>Machu Picchu</span></div>
-                            <div class="gallery-item" onclick="openModal('christ-redeemer')"><img src="https://images.unsplash.com/photo-1597048569613-59a25c921658?w=400&h=300&fit=crop" alt="Christ"><span>Christ Redeemer</span></div>
-                            <div class="gallery-item" onclick="openModal('great-wall')"><img src="https://images.unsplash.com/photo-1508850366017-743e39fe36a8?w=400&h=300&fit=crop" alt="Great Wall"><span>Great Wall</span></div>
-                            <div class="gallery-item" onclick="openModal('sagrada-familia')"><img src="https://images.unsplash.com/photo-1549520443-46ac509ce13c?w=400&h=300&fit=crop" alt="Sagrada"><span>Sagrada Familia</span></div>
-                            <div class="gallery-item" onclick="openModal('red-fort')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Red"><span>Red Fort</span></div>
-                            <div class="gallery-item" onclick="openModal('charminar')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Char"><span>Charminar</span></div>
-                            <div class="gallery-item" onclick="openModal('hampi')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Hampi"><span>Hampi</span></div>
-                            <div class="gallery-item" onclick="openModal('qutub-minar')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Qutub"><span>Qutub Minar</span></div>
-                        </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Eiffel Tower', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=300&q=80" alt="Eiffel Tower">
+                        <div class="thumb-label">Eiffel Tower, France</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Machu Picchu', 'https://images.unsplash.com/photo-1587595421960-4aef9e57be24?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1587595421960-4aef9e57be24?auto=format&fit=crop&w=300&q=80" alt="Machu Picchu">
+                        <div class="thumb-label">Machu Picchu, Peru</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Great Wall', 'https://images.unsplash.com/photo-1508804185872-d7bab21de7e1?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1508804185872-d7bab21de7e1?auto=format&fit=crop&w=300&q=80" alt="Great Wall">
+                        <div class="thumb-label">Great Wall, China</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Pyramids of Giza', 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=300&q=80" alt="Pyramids of Giza">
+                        <div class="thumb-label">Giza Pyramids, Egypt</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Statue of Liberty', 'https://images.unsplash.com/photo-1605130287443-4491b01a758a?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1605130287443-4491b01a758a?auto=format&fit=crop&w=300&q=80" alt="Statue of Liberty">
+                        <div class="thumb-label">Statue of Liberty, USA</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Petra', 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=300&q=80" alt="Petra">
+                        <div class="thumb-label">Petra, Jordan</div>
+                    </div>
+                    <div class="gallery-thumb-card" onclick="injectGalleryToLens('Chichen Itza', 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80')">
+                        <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=300&q=80" alt="Chichen Itza">
+                        <div class="thumb-label">Chichen Itza, Mexico</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <div class="modal" id="imageModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Monument">
-            <h3 id="modalTitle"></h3>
-            <p id="modalDescription"></p>
-            <button class="btn btn-voice" onclick="speakModalText()"><i class="fas fa-volume-up"></i> Listen</button>
-            <button class="btn btn-secondary" onclick="showMapFromModal()"><i class="fas fa-map"></i> View Map</button>
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modalTargetImg">
+            <div id="modalCaption"></div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section"><h4>HeritageLens AI</h4><p>AI for world culture</p></div>
-                <div class="footer-section"><h4>Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 HeritageLens AI</p></div>
-        </div>
-    </footer>
     <script src="script.js"></script>
 </body>
-    </html>
+</html>
