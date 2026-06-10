@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI — Level 2</title>
+  <title>HeritageLens AI — Level 3</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
@@ -15,60 +15,57 @@
   <div class="logo">🏛️ HeritageLens AI</div>
   <div class="nav-links">
     <a href="#">Home</a>
-    <a href="#demo">AI Demo</a>
+    <a href="#demo">AI Studio</a>
   </div>
 </nav>
 
 <header class="hero">
-  <h1>AI That Brings <span class="grad">History Alive</span></h1>
-  <p>Chat • Scan • Listen • Explore Heritage with AI</p>
+  <h1>HeritageLens <span class="grad">AI Engine</span></h1>
+  <p>Real AI • Memory • Voice • Smart Tourism Intelligence</p>
 </header>
 
-<!-- DEMO -->
-<section id="demo">
+<section id="demo" class="layout">
 
-  <div class="container">
+  <!-- CHAT -->
+  <div class="panel">
+    <h2>💬 AI Chat Engine</h2>
 
-    <!-- CHAT BOX -->
-    <div class="chat-box">
-      <div id="chat"></div>
+    <div id="chat"></div>
 
-      <div class="input-row">
-        <input id="userInput" placeholder="Ask about Taj Mahal, forts, temples..." />
-        <button onclick="sendMessage()">Send</button>
-      </div>
+    <div class="input-row">
+      <input id="input" placeholder="Ask about monuments..." />
+      <button onclick="send()">Send</button>
     </div>
 
-    <!-- SIDE PANEL -->
-    <div class="side-panel">
-
-      <!-- LENS MODE -->
-      <div class="card">
-        <h3>📷 Lens Scan Mode</h3>
-        <input id="lensInput" placeholder="Enter monument name..." />
-        <button onclick="lensScan()">Scan</button>
-        <div id="scanStatus"></div>
-      </div>
-
-      <!-- VOICE -->
-      <div class="card">
-        <h3>🔊 Voice Narration</h3>
-        <button onclick="speakLast()">Speak Last Response</button>
-        <button onclick="stopSpeech()">Stop</button>
-      </div>
-
+    <div class="small">
+      Powered by AI Engine (API-ready fallback system)
     </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="panel">
+
+    <h2>🧠 AI Controls</h2>
+
+    <button onclick="startVoice()">🔊 Speak Last Answer</button>
+    <button onclick="stopVoice()">⛔ Stop Voice</button>
+
+    <hr/>
+
+    <h3>📷 Lens AI Scan</h3>
+    <input id="lens" placeholder="Enter monument name"/>
+    <button onclick="lens()">Scan</button>
+
+    <div id="scan"></div>
+
+    <hr/>
+
+    <h3>🗺️ Smart Map</h3>
+    <div id="map"></div>
 
   </div>
+
 </section>
-
-<!-- IMAGE MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()" class="close">✖</span>
-    <img id="modalImg"/>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
