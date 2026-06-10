@@ -2,274 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Demo — HeritageLens AI Explorer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Demo — HeritageLens</title>
+
+  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
-  <div class="bg-gradient"></div>
 
-  <nav>
-    <a href="index.html" class="nav-brand">
-      <div class="lens-icon">🔭</div>
-      <span>HeritageLens</span>
-      <span class="ai-tag">AI</span>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="features.html">Features</a>
-      <a href="demo.html" class="nav-cta active">AI Demo</a>
-    </div>
-    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
-  </nav>
+<div class="bg-gradient"></div>
 
-  <!-- Demo Header -->
-  <div style="text-align:center;padding:2.5rem 2rem 0">
-    <div class="hero-badge" style="display:inline-flex">
-      <span class="badge-dot"></span>
-      HERITAGELENS AI · LIVE DEMO
-    </div>
-    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);margin:0.75rem 0 0.5rem">
-      AI Heritage Explorer
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🏛️ HeritageLens <span class="ai">AI</span></div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="demo.html" class="active">AI Demo</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="glass hero-box">
+
+    <h1>
+      Talk to History<br>
+      <span class="gradient-text">Like an AI Guide</span>
     </h1>
-    <p style="color:var(--text-muted);font-size:0.95rem">
-      Chat · Lens Scan · Voice · Map · Gallery — all in one place
-    </p>
+
+    <p>Ask anything about Indian monuments, kings, temples, and stories.</p>
+
   </div>
 
-  <!-- Mode Toggle Bar -->
-  <div class="demo-layout">
+</section>
 
-    <div class="mode-toggle-bar glass">
-      <span class="mode-label">Active Mode:</span>
-      <button class="mode-btn active" id="mode-text" onclick="setMode('text')">
-        💬 Text Mode
-      </button>
-      <button class="mode-btn" id="mode-lens" onclick="setMode('lens')">
-        📷 Lens Mode
-      </button>
-      <span id="currentMonumentName" style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold2)">🏛️ Taj Mahal</span>
-    </div>
+<!-- CHAT SYSTEM -->
+<section class="chat-section glass">
 
-    <!-- ==========================================
-         LEFT PANEL — CHAT + LENS
-    ========================================== -->
-    <div>
+  <div id="chatBox" class="chat-box"></div>
 
-      <!-- TEXT MODE PANEL -->
-      <div id="textModePanel" class="chat-panel glass" style="display:flex">
-        <div class="chat-header">
-          <div class="chat-title">
-            <span>🏛️</span>
-            <span style="font-size:1rem">Heritage AI Chat</span>
-          </div>
-          <div class="ai-status">
-            <div class="status-dot"></div>
-            AI ONLINE
-          </div>
-        </div>
-
-        <div class="chat-messages" id="chatMessages">
-          <!-- Messages injected by JS -->
-        </div>
-
-        <div class="chat-input-area">
-          <!-- Quick Tags -->
-          <div class="quick-tags" style="margin-bottom:0.75rem">
-            <span class="quick-tag" onclick="sendQuickTag('Taj Mahal')">🕌 Taj Mahal</span>
-            <span class="quick-tag" onclick="sendQuickTag('Red Fort')">🏯 Red Fort</span>
-            <span class="quick-tag" onclick="sendQuickTag('Qutub Minar')">🗼 Qutub Minar</span>
-            <span class="quick-tag" onclick="sendQuickTag('India Gate')">🏛️ India Gate</span>
-            <span class="quick-tag" onclick="sendQuickTag('Hawa Mahal')">🏰 Hawa Mahal</span>
-          </div>
-          <div class="chat-input-row">
-            <textarea
-              class="chat-input"
-              id="chatInput"
-              placeholder="Ask about any heritage monument... (Enter to send, Shift+Enter for newline)"
-              rows="1"
-            ></textarea>
-            <button class="send-btn" onclick="sendMessage()" title="Send message">➤</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- LENS MODE PANEL -->
-      <div id="lensModePanel" class="glass" style="display:none;padding:1.75rem">
-        <div style="margin-bottom:1.25rem">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold2);margin-bottom:0.35rem">
-            📷 Heritage Lens Mode
-          </h3>
-          <p style="color:var(--text-muted);font-size:0.85rem">
-            Simulate scanning a monument — the AI will "recognise" it and generate an instant heritage briefing.
-          </p>
-        </div>
-
-        <div class="lens-scan-area" id="lensScanArea" onclick="if(document.getElementById('lensInput').value) activateLensMode()">
-          <div class="scan-line"></div>
-          <div class="lens-viewfinder">🔍</div>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.25rem">
-            Point lens at monument name
-          </p>
-          <p style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--gold3)">
-            TAP TO SCAN
-          </p>
-        </div>
-
-        <div class="lens-input-wrap">
-          <input
-            class="lens-input"
-            id="lensInput"
-            type="text"
-            placeholder="e.g. Taj Mahal, Red Fort, Hawa Mahal…"
-            onkeydown="if(event.key==='Enter') activateLensMode()"
-          />
-          <button class="btn btn-primary btn-sm" onclick="activateLensMode()">
-            📷 Scan
-          </button>
-        </div>
-
-        <div class="scan-result" id="scanResult"></div>
-
-        <div style="margin-top:1.25rem">
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem">Quick Scan:</p>
-          <div class="quick-tags">
-            <span class="quick-tag" onclick="document.getElementById('lensInput').value='Taj Mahal';activateLensMode('Taj Mahal')">🕌 Taj Mahal</span>
-            <span class="quick-tag" onclick="document.getElementById('lensInput').value='Red Fort';activateLensMode('Red Fort')">🏯 Red Fort</span>
-            <span class="quick-tag" onclick="document.getElementById('lensInput').value='Qutub Minar';activateLensMode('Qutub Minar')">🗼 Qutub Minar</span>
-            <span class="quick-tag" onclick="document.getElementById('lensInput').value='India Gate';activateLensMode('India Gate')">🏛️ India Gate</span>
-            <span class="quick-tag" onclick="document.getElementById('lensInput').value='Hawa Mahal';activateLensMode('Hawa Mahal')">🏰 Hawa Mahal</span>
-          </div>
-        </div>
-
-        <!-- Result flows to chat panel below -->
-        <div style="margin-top:1.5rem;border-top:1px solid rgba(201,168,76,0.15);padding-top:1.25rem">
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem">📋 Scan Result appears in Chat below:</p>
-          <div class="chat-panel glass" style="height:300px;border:none">
-            <div class="chat-messages" id="chatMessages2" style="height:100%"></div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /left panel -->
-
-    <!-- ==========================================
-         RIGHT PANEL — INFO CARDS
-    ========================================== -->
-    <div class="info-panel">
-
-      <!-- Voice Control -->
-      <div class="info-card glass">
-        <div class="info-card-title">🔊 Voice Narration</div>
-        <div class="voice-controls">
-          <button class="voice-btn" onclick="narrate()">
-            🔊 Listen to Story
-          </button>
-          <div class="speed-control">
-            <span>Speed:</span>
-            <input type="range" class="speed-slider" min="0.5" max="2" step="0.1" value="0.9"
-              oninput="updateVoiceSpeed(this.value)" />
-            <span id="speedLabel">0.9x</span>
-          </div>
-        </div>
-        <p style="color:var(--text-muted);font-size:0.78rem;margin-top:0.75rem">
-          Explore a monument first, then press Listen to hear the full story narrated aloud.
-        </p>
-      </div>
-
-      <!-- Map -->
-      <div class="info-card glass">
-        <div class="info-card-title">🗺️ Monument Location</div>
-        <div class="map-container">
-          <div class="map-placeholder" id="mapPlaceholder">
-            <div class="map-pin">📍</div>
-            <div class="map-location-label" id="mapLocationLabel">📍 Agra, Uttar Pradesh</div>
-            <div style="font-size:0.75rem;color:var(--text-muted)">Explore a monument to update</div>
-          </div>
-          <iframe
-            id="mapIframe"
-            width="100%" height="100%"
-            frameborder="0"
-            style="border:none;display:none;border-radius:8px"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=Taj+Mahal+Agra+India&output=embed"
-          ></iframe>
-        </div>
-        <div id="mapLocationLabel" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--gold2);margin-top:0.5rem;text-align:center">
-          📍 Agra, Uttar Pradesh, India
-        </div>
-      </div>
-
-      <!-- Fun Facts -->
-      <div class="info-card glass">
-        <div class="info-card-title">✦ Key Facts</div>
-        <div class="facts-list" id="factsList">
-          <div class="fact-chip">Designated a UNESCO World Heritage Site in 1983</div>
-          <div class="fact-chip">Built between 1632–1653 CE by Emperor Shah Jahan</div>
-          <div class="fact-chip">The marble changes colour depending on sunlight and moonlight</div>
-        </div>
-      </div>
-
-      <!-- Image Gallery -->
-      <div class="info-card glass">
-        <div class="info-card-title">🖼️ Visual Gallery</div>
-        <div class="img-grid" id="imgGrid">
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Main View','🕌')">
-            <span>🕌</span><div class="img-overlay">🔍</div>
-          </div>
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Dawn View','🌅')">
-            <span>🌅</span><div class="img-overlay">🔍</div>
-          </div>
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Night View','🌙')">
-            <span>🌙</span><div class="img-overlay">🔍</div>
-          </div>
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Art Detail','🎨')">
-            <span>🎨</span><div class="img-overlay">🔍</div>
-          </div>
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Landscape','🏔️')">
-            <span>🏔️</span><div class="img-overlay">🔍</div>
-          </div>
-          <div class="img-thumb" onclick="openModal('Taj Mahal','Close-Up','🔍')">
-            <span>🔍</span><div class="img-overlay">🔍</div>
-          </div>
-        </div>
-        <p style="color:var(--text-muted);font-size:0.75rem;margin-top:0.75rem">
-          Click any image to open fullscreen view
-        </p>
-      </div>
-
-    </div><!-- /right panel -->
-
-  </div><!-- /demo-layout -->
-
-  <!-- Image Modal -->
-  <div class="modal-overlay" id="imgModal" onclick="if(event.target===this)closeModal()">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-img" id="modalImg">🕌</div>
-      <div class="modal-caption">
-        <h3 id="modalTitle">Taj Mahal — Main View</h3>
-        <p id="modalDesc">The iconic ivory-white marble mausoleum stands as a testament to eternal love and Mughal architectural genius.</p>
-      </div>
-    </div>
+  <div class="chat-input">
+    <input id="userInput" placeholder="Ask: Tell me about Taj Mahal..." />
+    <button onclick="sendMessage()">Send</button>
   </div>
 
-  <!-- Toast -->
-  <div class="toast" id="globalToast"></div>
+</section>
 
-  <script src="script.js"></script>
+<!-- LENS MODE -->
+<section class="lens-section glass">
 
-  <script>
-    // Sync lens mode chat to the same messages container
-    document.addEventListener('DOMContentLoaded', () => {
-      // Make lens mode chatMessages2 mirror the main chat
-      // (handled by always appending to chatMessages in script.js)
-    });
-  </script>
+  <h2>📷 AI Lens Mode</h2>
+
+  <input id="lensInput" placeholder="Scan: Red Fort / Taj Mahal / Hampi" />
+  <button onclick="scanLens()">Scan Monument</button>
+
+  <div id="lensOutput" class="lens-output"></div>
+
+</section>
+
+<script>
+const chatBox = document.getElementById("chatBox");
+
+// Add message
+function addMessage(text, type) {
+  const div = document.createElement("div");
+  div.className = "msg " + type;
+  div.innerText = text;
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// AI reply logic (demo system)
+function getAIResponse(input) {
+  input = input.toLowerCase();
+
+  if (input.includes("taj")) {
+    return "🏛️ Taj Mahal was built by Shah Jahan in memory of Mumtaz Mahal. It represents eternal love.";
+  }
+
+  if (input.includes("red fort")) {
+    return "🏰 Red Fort was built by Mughal Emperor Shah Jahan in 1648 in Delhi.";
+  }
+
+  if (input.includes("hampi")) {
+    return "🏯 Hampi was the capital of Vijayanagara Empire and is a UNESCO heritage site.";
+  }
+
+  return "🤖 I am still learning this monument. Try Taj Mahal, Red Fort, or Hampi.";
+}
+
+// Send chat message
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const text = input.value;
+
+  if (!text) return;
+
+  addMessage("You: " + text, "user");
+
+  setTimeout(() => {
+    addMessage("AI: " + getAIResponse(text), "ai");
+  }, 900);
+
+  input.value = "";
+}
+
+// Lens scan simulation
+function scanLens() {
+  const input = document.getElementById("lensInput").value.toLowerCase();
+  const output = document.getElementById("lensOutput");
+
+  output.innerHTML = "🔍 Scanning monument...";
+
+  setTimeout(() => {
+
+    if (input.includes("taj")) {
+      output.innerHTML = "🏛️ Taj Mahal detected → Symbol of love, Mughal architecture masterpiece.";
+    }
+    else if (input.includes("red")) {
+      output.innerHTML = "🏰 Red Fort detected → Mughal power center in Delhi.";
+    }
+    else if (input.includes("hampi")) {
+      output.innerHTML = "🏯 Hampi detected → Ancient Vijayanagara capital ruins.";
+    }
+    else {
+      output.innerHTML = "⚠️ No monument found in AI database.";
+    }
+
+  }, 1200);
+}
+</script>
 
 </body>
 </html>
