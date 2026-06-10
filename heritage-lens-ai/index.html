@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI — Level 3</title>
+  <title>HeritageLens AI — Level 4</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
@@ -12,61 +12,47 @@
 <div class="bg"></div>
 
 <nav>
-  <div class="logo">🏛️ HeritageLens AI</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#demo">AI Studio</a>
+  <div class="logo">🏛️ HeritageLens AI Pro</div>
+  <div>
+    <button onclick="startCamera()">📸 Scan</button>
+    <button onclick="loadHistory()">🧠 History</button>
   </div>
 </nav>
 
 <header class="hero">
-  <h1>HeritageLens <span class="grad">AI Engine</span></h1>
-  <p>Real AI • Memory • Voice • Smart Tourism Intelligence</p>
+  <h1>HeritageLens <span class="grad">AI Final Boss</span></h1>
+  <p>Vision AI • Memory • Smart Tourism Engine</p>
 </header>
 
-<section id="demo" class="layout">
+<section class="app">
 
-  <!-- CHAT -->
+  <!-- CAMERA PANEL -->
   <div class="panel">
-    <h2>💬 AI Chat Engine</h2>
+    <h2>📸 Live Scan</h2>
+
+    <video id="video" autoplay></video>
+    <canvas id="canvas" hidden></canvas>
+
+    <button onclick="capture()">Capture & Identify</button>
+
+    <div id="visionResult"></div>
+  </div>
+
+  <!-- AI CHAT -->
+  <div class="panel">
+    <h2>🤖 Heritage AI</h2>
 
     <div id="chat"></div>
 
-    <div class="input-row">
-      <input id="input" placeholder="Ask about monuments..." />
-      <button onclick="send()">Send</button>
-    </div>
-
-    <div class="small">
-      Powered by AI Engine (API-ready fallback system)
-    </div>
-  </div>
-
-  <!-- FEATURES -->
-  <div class="panel">
-
-    <h2>🧠 AI Controls</h2>
-
-    <button onclick="startVoice()">🔊 Speak Last Answer</button>
-    <button onclick="stopVoice()">⛔ Stop Voice</button>
-
-    <hr/>
-
-    <h3>📷 Lens AI Scan</h3>
-    <input id="lens" placeholder="Enter monument name"/>
-    <button onclick="lens()">Scan</button>
-
-    <div id="scan"></div>
-
-    <hr/>
-
-    <h3>🗺️ Smart Map</h3>
-    <div id="map"></div>
-
+    <input id="input" placeholder="Ask about monuments..." />
+    <button onclick="ask()">Ask AI</button>
   </div>
 
 </section>
 
-<script src="script.js"></script>
+<script src="ai.js"></script>
+<script src="vision.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
