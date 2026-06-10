@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AI Demo</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Demo</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 
 <header class="navbar">
@@ -12,22 +13,25 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
+    <a href="demo.html">AI Demo</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>💬 AI Explorer</h1>
-</section>
+<section class="section">
+  <h1 class="section-title">Live AI Demo</h1>
 
-<section class="cards">
+  <div class="chat-box">
+    <div id="chat-log" class="chat-log"></div>
 
-  <div class="card">
-    <input id="input" placeholder="Ask about Taj Mahal..." style="padding:10px; width:100%;">
-    <button onclick="askAI()" class="btn">Ask AI</button>
-    <p id="output"></p>
+    <input id="user-input" type="text" placeholder="Ask about Indian heritage..." />
+    
+    <div class="chat-actions">
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startScan()">Scan Monument</button>
+      <button onclick="speakText()">🔊 Speak</button>
+    </div>
   </div>
-
 </section>
 
 <script src="script.js"></script>
