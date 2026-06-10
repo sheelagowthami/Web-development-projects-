@@ -1,40 +1,52 @@
-function askAI() {
-  const input = document.getElementById("searchInput").value;
-  generateResponse(input);
+const chat = document.getElementById("chat");
+
+let memory = [];
+
+function addMessage(text, type) {
+  const div = document.createElement("div");
+  div.className = "msg " + type;
+  div.innerText = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
 }
 
-function quickAsk(text) {
-  document.getElementById("searchInput").value = text;
-  generateResponse(text);
+function fakeAIResponse(input) {
+  input = input.toLowerCase();
+
+  if (input.includes("taj")) {
+    return "The Taj Mahal was built by Shah Jahan in memory of Mumtaz Mahal. It represents eternal love and Mughal architecture.";
+  }
+
+  if (input.includes("charminar")) {
+    return "Charminar, built in 1591, is located in Hyderabad and symbolizes the foundation of the city.";
+  }
+
+  if (input.includes("fort")) {
+    return "India has many historic forts like Red Fort, Golconda Fort, and Amer Fort, each with rich military history.";
+  }
+
+  return "I am still learning about this monument. Try asking about Taj Mahal, Charminar, or forts of India.";
 }
 
-function generateResponse(query) {
-  const box = document.getElementById("responseBox");
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const text = input.value.trim();
 
-  box.innerHTML = "🤖 AI is thinking...";
+  if (!text) return;
+
+  addMessage(text, "user");
+  memory.push(text);
+
+  input.value = "";
 
   setTimeout(() => {
-
-    let response = "";
-
-    if (query.toLowerCase().includes("taj")) {
-      response = "🏛️ Taj Mahal is a UNESCO World Heritage Site built by Shah Jahan in memory of Mumtaz Mahal. It symbolizes eternal love.";
-    }
-    else if (query.toLowerCase().includes("red fort")) {
-      response = "🏰 Red Fort in Delhi was built by Shah Jahan in 1648 and represents Mughal power and architecture.";
-    }
-    else if (query.toLowerCase().includes("hampi")) {
-      response = "🪨 Hampi is a historic Vijayanagara Empire city with stunning ruins and temple architecture.";
-    }
-    else {
-      response = "📚 I found heritage information about: " + query + ". More detailed story coming soon in AI upgrade mode.";
-    }
-
-    box.innerHTML = response;
-
-  }, 1200);
+    const response = fakeAIResponse(text);
+    addMessage(response, "ai");
+    memory.push(response);
+  }, 800);
 }
 
+/* MOBILE MENU */
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("open");
 }
