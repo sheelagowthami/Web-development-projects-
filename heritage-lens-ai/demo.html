@@ -1,141 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Demo — HeritageLens</title>
-
+  <title>AI Demo - HeritageLens AI</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-<div class="bg-gradient"></div>
+<div class="bg"></div>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-brand">🏛️ HeritageLens <span class="ai">AI</span></div>
-
-  <div class="nav-links">
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <div>
     <a href="index.html">Home</a>
-    <a href="features.html">Features</a>
-    <a href="demo.html" class="active">AI Demo</a>
     <a href="about.html">About</a>
+    <a href="features.html">Features</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<header class="hero">
+  <h1>🎯 Live <span class="grad">AI Demo</span></h1>
+</header>
 
-  <div class="glass hero-box">
+<section class="panel">
 
-    <h1>
-      Talk to History<br>
-      <span class="gradient-text">Like an AI Guide</span>
-    </h1>
+  <div id="chat"></div>
 
-    <p>Ask anything about Indian monuments, kings, temples, and stories.</p>
+  <input id="input" placeholder="Ask AI about monuments..." />
+  <button onclick="sendMessage()">Send</button>
 
-  </div>
+  <br><br>
 
-</section>
+  <button onclick="startCamera()">📸 Start Camera</button>
+  <button onclick="capture()">Capture</button>
 
-<!-- CHAT SYSTEM -->
-<section class="chat-section glass">
-
-  <div id="chatBox" class="chat-box"></div>
-
-  <div class="chat-input">
-    <input id="userInput" placeholder="Ask: Tell me about Taj Mahal..." />
-    <button onclick="sendMessage()">Send</button>
-  </div>
+  <div id="visionResult"></div>
 
 </section>
 
-<!-- LENS MODE -->
-<section class="lens-section glass">
-
-  <h2>📷 AI Lens Mode</h2>
-
-  <input id="lensInput" placeholder="Scan: Red Fort / Taj Mahal / Hampi" />
-  <button onclick="scanLens()">Scan Monument</button>
-
-  <div id="lensOutput" class="lens-output"></div>
-
-</section>
-
-<script>
-const chatBox = document.getElementById("chatBox");
-
-// Add message
-function addMessage(text, type) {
-  const div = document.createElement("div");
-  div.className = "msg " + type;
-  div.innerText = text;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// AI reply logic (demo system)
-function getAIResponse(input) {
-  input = input.toLowerCase();
-
-  if (input.includes("taj")) {
-    return "🏛️ Taj Mahal was built by Shah Jahan in memory of Mumtaz Mahal. It represents eternal love.";
-  }
-
-  if (input.includes("red fort")) {
-    return "🏰 Red Fort was built by Mughal Emperor Shah Jahan in 1648 in Delhi.";
-  }
-
-  if (input.includes("hampi")) {
-    return "🏯 Hampi was the capital of Vijayanagara Empire and is a UNESCO heritage site.";
-  }
-
-  return "🤖 I am still learning this monument. Try Taj Mahal, Red Fort, or Hampi.";
-}
-
-// Send chat message
-function sendMessage() {
-  const input = document.getElementById("userInput");
-  const text = input.value;
-
-  if (!text) return;
-
-  addMessage("You: " + text, "user");
-
-  setTimeout(() => {
-    addMessage("AI: " + getAIResponse(text), "ai");
-  }, 900);
-
-  input.value = "";
-}
-
-// Lens scan simulation
-function scanLens() {
-  const input = document.getElementById("lensInput").value.toLowerCase();
-  const output = document.getElementById("lensOutput");
-
-  output.innerHTML = "🔍 Scanning monument...";
-
-  setTimeout(() => {
-
-    if (input.includes("taj")) {
-      output.innerHTML = "🏛️ Taj Mahal detected → Symbol of love, Mughal architecture masterpiece.";
-    }
-    else if (input.includes("red")) {
-      output.innerHTML = "🏰 Red Fort detected → Mughal power center in Delhi.";
-    }
-    else if (input.includes("hampi")) {
-      output.innerHTML = "🏯 Hampi detected → Ancient Vijayanagara capital ruins.";
-    }
-    else {
-      output.innerHTML = "⚠️ No monument found in AI database.";
-    }
-
-  }, 1200);
-}
-</script>
+<script src="ai.js"></script>
+<script src="vision.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
