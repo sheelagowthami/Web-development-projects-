@@ -1,145 +1,52 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>HeritageLens AI</title>
-<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <nav class="navbar">
-  <div class="logo">🏛️ HeritageLens AI</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="features.html">Features</a>
-    <a href="demo.html">AI Demo</a>
-    <a href="about.html">About</a>
-  </div>
+  <div class="logo">HeritageLens AI</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="features.html">Features</a></li>
+  </ul>
 </nav>
 
-<header class="hero">
-  <h1>Explore India’s Heritage with AI</h1>
-  <p>AI-powered cultural exploration platform for world monuments</p>
+<section class="hero" id="home">
+  <h1 class="hero-title">Explore India’s Heritage with AI</h1>
   <div class="hero-buttons">
-    <a href="demo.html" class="btn primary">Try AI Demo</a>
-    <a href="#categories" class="btn secondary">Explore Heritage Lens</a>
-  </div>
-</header>
-
-<section id="categories" class="section">
-  <h2>🇮🇳 Indian Monuments</h2>
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?taj%20mahal" />
-      <h3>Taj Mahal</h3><p>Agra, Uttar Pradesh</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Taj%20Mahal" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Taj Mahal Agra" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?red%20fort" />
-      <h3>Red Fort</h3><p>Delhi</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Red%20Fort" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Red Fort Delhi" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?qutub%20minar" />
-      <h3>Qutub Minar</h3><p>Delhi</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Qutub%20Minar" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Qutub Minar Delhi" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?humayun%20tomb" />
-      <h3>Humayun’s Tomb</h3><p>Delhi</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Humayun%20Tomb" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Humayun Tomb Delhi" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?india%20gate" />
-      <h3>India Gate</h3><p>New Delhi</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=India%20Gate" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=India Gate New Delhi" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
+    <button class="btn-primary" id="demoBtn">Try AI Demo</button>
+    <button class="btn-secondary" id="exploreBtn">Explore Heritage Lens</button>
   </div>
 </section>
 
-<section class="section">
-  <h2>🌍 Foreign Monuments</h2>
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?eiffel%20tower" />
-      <h3>Eiffel Tower</h3><p>France</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Eiffel%20Tower" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Eiffel Tower Paris" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?colosseum" />
-      <h3>Colosseum</h3><p>Italy</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Colosseum" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Colosseum Rome" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://source.unsplash.com/800x600/?great%20wall%20of%20china" />
-      <h3>Great Wall of China</h3><p>China</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Great%20Wall%20of%20China" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Great Wall of China" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-  </div>
+<section id="categories" class="categories-section">
+  <h2 class="section-title">Indian Monuments</h2>
+  <div class="cards-container" id="indian-monuments"></div>
 </section>
 
-<section class="section">
-  <h2>🌏 7 Wonders</h2>
-  <div class="grid">
-
-    <div class="card"><img src="https://source.unsplash.com/800x600/?petra" /><h3>Petra</h3><p>Jordan</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Petra" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Petra Jordan" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card"><img src="https://source.unsplash.com/800x600/?machu%20picchu" /><h3>Machu Picchu</h3><p>Peru</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Machu%20Picchu" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Machu Picchu" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-    <div class="card"><img src="https://source.unsplash.com/800x600/?chichen%20itza" /><h3>Chichen Itza</h3><p>Mexico</p>
-      <div class="card-buttons">
-        <a href="demo.html?monument=Chichen%20Itza" class="btn small">🧠 About</a>
-        <a target="_blank" href="https://maps.google.com/?q=Chichen Itza" class="btn small">🗺️ Map</a>
-      </div>
-    </div>
-
-  </div>
+<section id="foreign" class="categories-section">
+  <h2 class="section-title">Foreign Monuments</h2>
+  <div class="cards-container" id="foreign-monuments"></div>
 </section>
+
+<section id="wonders" class="categories-section">
+  <h2 class="section-title">7 Wonders</h2>
+  <div class="cards-container" id="wonders-list"></div>
+</section>
+
+<!-- Modal for image gallery -->
+<div id="imageModal" class="modal">
+  <span class="close" id="closeModal">&times;</span>
+  <img class="modal-content" id="modalImage" />
+  <div class="modal-caption" id="modalCaption"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
