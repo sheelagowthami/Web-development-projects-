@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeritageLens AI - Explore India's Heritage with AI</title>
+    <title>HeritageLens AI - Explore World Heritage with AI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -25,11 +25,11 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title gradient-text">Explore India's Heritage with AI</h1>
-            <p class="hero-subtitle">Discover ancient monuments through intelligent AI narration, real-time heritage scanning, and immersive cultural experiences</p>
+            <h1 class="hero-title gradient-text">Explore World Heritage with AI</h1>
+            <p class="hero-subtitle">Discover famous monuments through intelligent AI narration, image scanning, and immersive cultural experiences</p>
             <div class="hero-buttons">
                 <a href="demo.html" class="btn btn-primary btn-glow"><i class="fas fa-robot"></i> Try AI Demo</a>
-                <a href="features.html" class="btn btn-secondary"><i class="fas fa-star"></i> Explore Features</a>
+                <a href="demo.html" class="btn btn-secondary"><i class="fas fa-camera"></i> Scan Monument</a>
             </div>
         </div>
         <div class="floating-elements">
@@ -43,27 +43,31 @@
     <section class="monuments-section">
         <div class="container">
             <h2 class="section-title gradient-text">Featured Heritage Sites</h2>
-            <p class="section-subtitle">Discover India's most iconic monuments with AI-powered explanations</p>
+            <p class="section-subtitle">Discover the world's most iconic monuments with AI-powered explanations</p>
             <div class="monuments-grid">
                 <div class="monument-card" data-monument="taj-mahal">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=500&h=400&fit=crop" alt="Taj Mahal"><div class="image-overlay"><button class="btn-view" onclick="openModal('taj-mahal')"><i class="fas fa-eye"></i> View</button></div></div>
-                    <div class="card-content"><h3 class="card-title">Taj Mahal</h3><p class="card-history">Agra, Uttar Pradesh | 17th Century</p><p class="card-description">The iconic white marble mausoleum, built by Shah Jahan in memory of his wife Mumtaz Mahal. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('taj-mahal')"><i class="fas fa-camera"></i> AI Scan</button></div>
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=600&h=400&fit=crop" alt="Taj Mahal"><div class="image-overlay"><button class="btn-view" onclick="openModal('taj-mahal')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Taj Mahal</h3><p class="card-history">Agra, India | 17th Century</p><p class="card-description">White marble mausoleum built by Shah Jahan. UNESCO World Heritage Site.</p></div>
                 </div>
-                <div class="monument-card" data-monument="red-fort">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Red Fort"><div class="image-overlay"><button class="btn-view" onclick="openModal('red-fort')"><i class="fas fa-eye"></i> View</button></div></div>
-                    <div class="card-content"><h3 class="card-title">Red Fort</h3><p class="card-history">Delhi | 17th Century</p><p class="card-description">Historic fortified palace built by Shah Jahan. Red sandstone walls symbolize Mughal power.</p><button class="btn-ai-scan" onclick="scanMonument('red-fort')"><i class="fas fa-camera"></i> AI Scan</button></div>
+                <div class="monument-card" data-monument="eiffel-tower">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1543349689-9a4d401aad4b?w=600&h=400&fit=crop" alt="Eiffel Tower"><div class="image-overlay"><button class="btn-view" onclick="openModal('eiffel-tower')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Eiffel Tower</h3><p class="card-history">Paris, France | 19th Century</p><p class="card-description">Iconic iron tower built in 1889. Symbol of France.</p></div>
                 </div>
-                <div class="monument-card" data-monument="charminar">
-                    <div class="card-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Charminar"><div class="image-overlay"><button class="btn-view" onclick="openModal('charminar')"><i class="fas fa-eye"></i> View</button></div></div>
-                    <div class="card-content"><h3 class="card-title">Charminar</h3><p class="card-history">Hyderabad, Telangana | 16th Century</p><p class="card-description">Iconic structure with four minarets built in 1591. Symbol of Hyderabad.</p><button class="btn-ai-scan" onclick="scanMonument('charminar')"><i class="fas fa-camera"></i> AI Scan</button></div>
+                <div class="monument-card" data-monument="pyramids-giza">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1503736334956-4c8e95959363?w=600&h=400&fit=crop" alt="Pyramids of Giza"><div class="image-overlay"><button class="btn-view" onclick="openModal('pyramids-giza')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Pyramids of Giza</h3><p class="card-history">Cairo, Egypt | 26th Century BC</p><p class="card-description">Ancient pyramids. Only surviving Wonder of Ancient World.</p></div>
                 </div>
-                <div class="monument-card" data-monument="hampi">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Hampi"><div class="image-overlay"><button class="btn-view" onclick="openModal('hampi')"><i class="fas fa-eye"></i> View</button></div></div>
-                    <div class="card-content"><h3 class="card-title">Hampi</h3><p class="card-history">Karnataka | 14th-16th Century</p><p class="card-description">Sacred center of Vijayanagara Empire with stunning temple ruins. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('hampi')"><i class="fas fa-camera"></i> AI Scan</button></div>
+                <div class="monument-card" data-monument="colosseum">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&h=400&fit=crop" alt="Colosseum"><div class="image-overlay"><button class="btn-view" onclick="openModal('colosseum')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Colosseum</h3><p class="card-history">Rome, Italy | 1st Century</p><p class="card-description">Largest ancient amphitheater. Built for gladiatorial contests.</p></div>
                 </div>
-                <div class="monument-card" data-monument="qutub-minar">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Qutub Minar"><div class="image-overlay"><button class="btn-view" onclick="openModal('qutub-minar')"><i class="fas fa-eye"></i> View</button></div></div>
-                    <div class="card-content"><h3 class="card-title">Qutub Minar</h3><p class="card-history">Delhi | 12th-13th Century</p><p class="card-description">Tallest brick minaret at 72.5m built by Qutb-ud-din Aibak. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('qutub-minar')"><i class="fas fa-camera"></i> AI Scan</button></div>
+                <div class="monument-card" data-monument="machu-picchu">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&h=400&fit=crop" alt="Machu Picchu"><div class="image-overlay"><button class="btn-view" onclick="openModal('machu-picchu')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Machu Picchu</h3><p class="card-history">Peru | 15th Century</p><p class="card-description">Ancient Incan city in mountains. UNESCO Site.</p></div>
+                </div>
+                <div class="monument-card" data-monument="christ-redeemer">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1597048569613-59a25c921658?w=600&h=400&fit=crop" alt="Christ the Redeemer"><div class="image-overlay"><button class="btn-view" onclick="openModal('christ-redeemer')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Christ the Redeemer</h3><p class="card-history">Rio de Janeiro, Brazil | 20th Century</p><p class="card-description">Art Deco statue of Christ. UNESCO Site.</p></div>
                 </div>
             </div>
         </div>
@@ -74,10 +78,34 @@
             <h2 class="section-title gradient-text">AI-Powered Features</h2>
             <p class="section-subtitle">Experience next-generation technology for heritage exploration</p>
             <div class="features-grid">
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>AI Chat System</h3><p>ChatGPT-style conversation with intelligent heritage answers</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-camera"></i></div><h3>Heritage Lens AI</h3><p>Real-time monument scanning with AI analysis</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Smart Map</h3><p>Google Maps integration for every monument</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-headphones"></i></div><h3>Voice Narration</h3><p>AI-powered audio explanations</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>AI Chat System</h3><p>Ask about ANY monument worldwide - get complete history, facts, tourist info</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-camera"></i></div><h3>Image Scanner</h3><p>Upload monument image → Get instant AI analysis and complete information</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Smart Map</h3><p>Google Maps location for every monument with travel directions</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-headphones"></i></div><h3>Voice Narration</h3><p>Listen to AI-powered audio explanations of monuments</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-preview">
+        <div class="container">
+            <h2 class="section-title gradient-text">World Heritage Gallery</h2>
+            <p class="section-subtitle">Browse famous monuments from around the globe</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('taj-mahal')"><img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=400&h=300&fit=crop" alt="Taj Mahal"><span>Taj Mahal</span></div>
+                <div class="gallery-item" onclick="openModal('eiffel-tower')"><img src="https://images.unsplash.com/photo-1543349689-9a4d401aad4b?w=400&h=300&fit=crop" alt="Eiffel Tower"><span>Eiffel Tower</span></div>
+                <div class="gallery-item" onclick="openModal('pyramids-giza')"><img src="https://images.unsplash.com/photo-1503736334956-4c8e95959363?w=400&h=300&fit=crop" alt="Pyramids"><span>Pyramids of Giza</span></div>
+                <div class="gallery-item" onclick="openModal('colosseum')"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=300&fit=crop" alt="Colosseum"><span>Colosseum</span></div>
+                <div class="gallery-item" onclick="openModal('machu-picchu')"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=400&h=300&fit=crop" alt="Machu Picchu"><span>Machu Picchu</span></div>
+                <div class="gallery-item" onclick="openModal('christ-redeemer')"><img src="https://images.unsplash.com/photo-1597048569613-59a25c921658?w=400&h=300&fit=crop" alt="Christ"><span>Christ Redeemer</span></div>
+                <div class="gallery-item" onclick="openModal('red-fort')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Red Fort"><span>Red Fort</span></div>
+                <div class="gallery-item" onclick="openModal('charminar')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Charminar"><span>Charminar</span></div>
+                <div class="gallery-item" onclick="openModal('hampi')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Hampi"><span>Hampi</span></div>
+                <div class="gallery-item" onclick="openModal('qutub-minar')"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=400&h=300&fit=crop" alt="Qutub"><span>Qutub Minar</span></div>
+                <div class="gallery-item" onclick="openModal('great-wall')"><img src="https://images.unsplash.com/photo-1508850366017-743e39fe36a8?w=400&h=300&fit=crop" alt="Great Wall"><span>Great Wall of China</span></div>
+                <div class="gallery-item" onclick="openModal('sagrada-familia')"><img src="https://images.unsplash.com/photo-1549520443-46ac509ce13c?w=400&h=300&fit=crop" alt="Sagrada"><span>Sagrada Familia</span></div>
+            </div>
+            <div style="text-align:center;margin-top:40px">
+                <a href="demo.html" class="btn btn-primary btn-glow"><i class="fas fa-images"></i> View Full Gallery</a>
             </div>
         </div>
     </section>
@@ -89,13 +117,14 @@
             <h3 id="modalTitle"></h3>
             <p id="modalDescription"></p>
             <button class="btn btn-voice" onclick="speakModalText()"><i class="fas fa-volume-up"></i> Listen</button>
+            <button class="btn btn-secondary" onclick="showMapFromModal()"><i class="fas fa-map"></i> View Map</button>
         </div>
     </div>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section"><h4><i class="fas fa-landmark"></i> HeritageLens AI</h4><p>AI for preserving culture</p></div>
+                <div class="footer-section"><h4><i class="fas fa-landmark"></i> HeritageLens AI</h4><p>AI for preserving world culture</p></div>
                 <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="about.html">About</a></li><li><a href="features.html">Features</a></li><li><a href="demo.html">Demo</a></li></ul></div>
                 <div class="footer-section"><h4>Contact</h4><p><i class="fas fa-envelope"></i> info@heritagelens.ai</p></div>
             </div>
