@@ -3,61 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features - HeritageLens AI</title>
+    <title>Features — HeritageLens AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar sticky">
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo"><i class="fas fa-landmark"></i><span>HeritageLens AI</span></div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="features.html" class="nav-link active">Features</a></li>
-                <li><a href="demo.html" class="nav-link">Demo</a></li>
-                <li><a href="demo.html" class="nav-cta">Try AI Demo</a></li>
-            </ul>
-            <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+            <a href="index.html" class="logo">HeritageLens <span class="ai-badge">AI</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html" class="active">Features</a>
+                <a href="demo.html">AI Demo</a>
+                <a href="about.html">About</a>
+            </div>
         </div>
     </nav>
 
-    <section class="features-hero">
-        <div class="container">
-            <h1 class="hero-title gradient-text">Powerful AI Features</h1>
-            <p class="hero-subtitle">World-class monument technology</p>
+    <header class="page-header">
+        <div class="hero-bg"></div>
+        <div class="header-content">
+            <span class="hero-tag">Core Technology Stack</span>
+            <h2>Architected for Discovery</h2>
+            <p>Explore the complex AI subsystems engineered to bring historical global landmarks directly to your screen.</p>
         </div>
-    </section>
+    </header>
 
-    <section class="features-detail">
-        <div class="container">
-            <div class="feature-detail-grid">
-                <div class="feature-detail-item glass-card"><div class="feature-detail-icon"><i class="fas fa-robot"></i></div><h3>AI Chat - Any Monument</h3><p>Ask about ANY monument worldwide - get complete history, builder info, when built, importance, why famous, tourist tips</p><ul class="feature-features"><li><i class="fas fa-check"></i> World monuments</li><li><i class="fas fa-check"></i> Complete info</li><li><i class="fas fa-check"></i> Tourist guide</li></ul></div>
-                <div class="feature-detail-item glass-card"><div class="feature-detail-icon"><i class="fas fa-camera"></i></div><h3>Image Scanner</h3><p>Upload monument image → Click Scan → Get instant complete AI analysis with history, facts, and map</p><ul class="feature-features"><li><i class="fas fa-check"></i> Image upload</li><li><i class="fas fa-check"></i> Instant scan</li><li><i class="fas fa-check"></i> Complete info</li></ul></div>
-                <div class="feature-detail-item glass-card"><div class="feature-detail-icon"><i class="fas fa-headphones"></i></div><h3>Voice Narration</h3><p>Listen to AI audio explanations of any monument with natural voice</p><ul class="feature-features"><li><i class="fas fa-check"></i> Natural voice</li><li><i class="fas fa-check"></i> Any monument</li></ul></div>
-                <div class="feature-detail-item glass-card"><div class="feature-detail-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Smart Map</h3><p>Google Maps location for every monument with travel directions for tourists</p><ul class="feature-features"><li><i class="fas fa-check"></i> Global locations</li><li><i class="fas fa-check"></i> Travel guide</li></ul></div>
-                <div class="feature-detail-item glass-card"><div class="feature-detail-icon"><i class="fas fa-images"></i></div><h3>World Gallery</h3><p>100+ famous monuments from all countries with real high-quality images</p><ul class="feature-features"><li><i class="fas fa-check"></i> Global collection</li><li><i class="fas fa-check"></i> Real images</li></ul></div>
+    <section class="features-detailed">
+        <div class="features-grid">
+            <div class="feature-pane">
+                <div class="feature-icon">🤖</div>
+                <h3>Global Architecture Chat</h3>
+                <p>Type just a single word of any historical monument globally. Our natural language subsystem parsing architecture responds immediately with detailed timelines, structural breakdowns, historical patrons, and cultural contexts perfect for travelers.</p>
             </div>
-        </div>
-    </section>
 
-    <section class="demo-cta">
-        <div class="container">
-            <h2 class="gradient-text">Try Features Live</h2>
-            <p>Ask about ANY monument or upload image to scan</p>
-            <a href="demo.html" class="btn btn-primary btn-glow"><i class="fas fa-rocket"></i> Try AI Demo</a>
+            <div class="feature-pane">
+                <div class="feature-icon">📷</div>
+                <h3>Neural Heritage Lens</h3>
+                <p>Skip manual text input completely. Upload any real-world monument photograph or reference file. The visual processing layer interprets the imagery instantly, generating structured reports alongside geolocation maps.</p>
+            </div>
+
+            <div class="feature-pane">
+                <div class="feature-icon">🔊</div>
+                <h3>Acoustic Audio Narration</h3>
+                <p>Integrated using the Web Speech API ecosystem. Converts generated textual profiles dynamically into smooth, continuous oral histories so you can listen on-site like a premium guided gallery experience.</p>
+            </div>
+
+            <div class="feature-pane">
+                <div class="feature-icon">🗺️</div>
+                <h3>Dynamic Smart Mapping</h3>
+                <p>Every identified historical node cross-references planetary spatial data. Instantly compiles directional vectors and automated navigation maps to plot direct traveling trajectories.</p>
+            </div>
+
+            <div class="feature-pane">
+                <div class="feature-icon">🖼️</div>
+                <h3>Ultra-High Res Global Gallery</h3>
+                <p>An integrated lightbox framework pulling rich asset imagery of historical locations across the globe, scaling smoothly dynamically for design-forward presentation views.</p>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section"><h4><i class="fas fa-landmark"></i> HeritageLens AI</h4><p>AI for culture</p></div>
-                <div class="footer-section"><h4>Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="demo.html">Demo</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 HeritageLens AI</p></div>
-        </div>
+        <p>&copy; 2026 HeritageLens AI. Engineered for deep cultural preservation.</p>
     </footer>
     <script src="script.js"></script>
 </body>
-                </html>
+</html>
