@@ -10,10 +10,7 @@
 <body>
     <nav class="navbar sticky">
         <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-landmark"></i>
-                <span>HeritageLens AI</span>
-            </div>
+            <div class="nav-logo"><i class="fas fa-landmark"></i><span>HeritageLens AI</span></div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
@@ -49,64 +46,24 @@
             <p class="section-subtitle">Discover India's most iconic monuments with AI-powered explanations</p>
             <div class="monuments-grid">
                 <div class="monument-card" data-monument="taj-mahal">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=500&h=400&fit=crop" alt="Taj Mahal">
-                        <div class="image-overlay"><button class="btn-view" onclick="openModal('taj-mahal')"><i class="fas fa-eye"></i> View</button></div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Taj Mahal</h3>
-                        <p class="card-history">Agra, Uttar Pradesh | 17th Century</p>
-                        <p class="card-description">The iconic white marble mausoleum, built by Shah Jahan in memory of his wife Mumtaz Mahal. Considered one of the finest examples of Mughal architecture and a UNESCO World Heritage Site.</p>
-                        <button class="btn-ai-scan" onclick="scanMonument('taj-mahal')"><i class="fas fa-camera"></i> AI Scan</button>
-                    </div>
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1566033706-6e4b8f5976c7?w=500&h=400&fit=crop" alt="Taj Mahal"><div class="image-overlay"><button class="btn-view" onclick="openModal('taj-mahal')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Taj Mahal</h3><p class="card-history">Agra, Uttar Pradesh | 17th Century</p><p class="card-description">The iconic white marble mausoleum, built by Shah Jahan in memory of his wife Mumtaz Mahal. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('taj-mahal')"><i class="fas fa-camera"></i> AI Scan</button></div>
                 </div>
                 <div class="monument-card" data-monument="red-fort">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Red Fort">
-                        <div class="image-overlay"><button class="btn-view" onclick="openModal('red-fort')"><i class="fas fa-eye"></i> View</button></div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Red Fort</h3>
-                        <p class="card-history">Delhi | 17th Century</p>
-                        <p class="card-description">Historic fortified palace in Delhi built by Mughal Emperor Shah Jahan. The red sandstone walls symbolize Mughal power and host the Prime Minister's Independence Day speech.</p>
-                        <button class="btn-ai-scan" onclick="scanMonument('red-fort')"><i class="fas fa-camera"></i> AI Scan</button>
-                    </div>
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Red Fort"><div class="image-overlay"><button class="btn-view" onclick="openModal('red-fort')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Red Fort</h3><p class="card-history">Delhi | 17th Century</p><p class="card-description">Historic fortified palace built by Shah Jahan. Red sandstone walls symbolize Mughal power.</p><button class="btn-ai-scan" onclick="scanMonument('red-fort')"><i class="fas fa-camera"></i> AI Scan</button></div>
                 </div>
                 <div class="monument-card" data-monument="charminar">
-                    <div class="card-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Charminar">
-                        <div class="image-overlay"><button class="btn-view" onclick="openModal('charminar')"><i class="fas fa-eye"></i> View</button></div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Charminar</h3>
-                        <p class="card-history">Hyderabad, Telangana | 16th Century</p>
-                        <p class="card-description">Iconic quadrilateral structure with four minarets, built by Muhammad Quli Qutb Shah in 1591. Known as the symbol of Hyderabad and a masterpiece of Indo-Islamic architecture.</p>
-                        <button class="btn-ai-scan" onclick="scanMonument('charminar')"><i class="fas fa-camera"></i> AI Scan</button>
-                    </div>
+                    <div class="card-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fB/Charminar_Hyderabad.jpg/800px-Charminar_Hyderabad.jpg" alt="Charminar"><div class="image-overlay"><button class="btn-view" onclick="openModal('charminar')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Charminar</h3><p class="card-history">Hyderabad, Telangana | 16th Century</p><p class="card-description">Iconic structure with four minarets built in 1591. Symbol of Hyderabad.</p><button class="btn-ai-scan" onclick="scanMonument('charminar')"><i class="fas fa-camera"></i> AI Scan</button></div>
                 </div>
                 <div class="monument-card" data-monument="hampi">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Hampi">
-                        <div class="image-overlay"><button class="btn-view" onclick="openModal('hampi')"><i class="fas fa-eye"></i> View</button></div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Hampi</h3>
-                        <p class="card-history">Karnataka | 14th-16th Century</p>
-                        <p class="card-description">Sacred center of the Vijayanagara Empire with stunning temple ruins like Virupaksha Temple and the iconic Stone Chariot. A UNESCO World Heritage Site with breathtaking landscape.</p>
-                        <button class="btn-ai-scan" onclick="scanMonument('hampi')"><i class="fas fa-camera"></i> AI Scan</button>
-                    </div>
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Hampi"><div class="image-overlay"><button class="btn-view" onclick="openModal('hampi')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Hampi</h3><p class="card-history">Karnataka | 14th-16th Century</p><p class="card-description">Sacred center of Vijayanagara Empire with stunning temple ruins. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('hampi')"><i class="fas fa-camera"></i> AI Scan</button></div>
                 </div>
                 <div class="monument-card" data-monument="qutub-minar">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Qutub Minar">
-                        <div class="image-overlay"><button class="btn-view" onclick="openModal('qutub-minar')"><i class="fas fa-eye"></i> View</button></div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Qutub Minar</h3>
-                        <p class="card-history">Delhi | 12th-13th Century</p>
-                        <p class="card-description">The tallest brick minaret in the world at 72.5 meters, built by Qutb-ud-din Aibak. A masterpiece of early Indo-Islamic architecture with intricate carvings and Quranic verses.</p>
-                        <button class="btn-ai-scan" onclick="scanMonument('qutub-minar')"><i class="fas fa-camera"></i> AI Scan</button>
-                    </div>
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1599669458028-9514d0d7c5e1?w=500&h=400&fit=crop" alt="Qutub Minar"><div class="image-overlay"><button class="btn-view" onclick="openModal('qutub-minar')"><i class="fas fa-eye"></i> View</button></div></div>
+                    <div class="card-content"><h3 class="card-title">Qutub Minar</h3><p class="card-history">Delhi | 12th-13th Century</p><p class="card-description">Tallest brick minaret at 72.5m built by Qutb-ud-din Aibak. UNESCO World Heritage Site.</p><button class="btn-ai-scan" onclick="scanMonument('qutub-minar')"><i class="fas fa-camera"></i> AI Scan</button></div>
                 </div>
             </div>
         </div>
@@ -147,4 +104,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-                          </html>
+</html>
