@@ -2,16 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
 }
 
 body {
   background: #0b1426;
-  color: #fff;
+  color: white;
   overflow-x: hidden;
 }
 
-/* BACKGROUND */
+/* background */
 .bg {
   position: fixed;
   inset: 0;
@@ -20,111 +20,64 @@ body {
   z-index: -1;
 }
 
-/* NAV */
+/* nav */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 15px;
   background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(10px);
-}
-
-.logo {
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
 }
 
 .nav-links a {
-  color: #ccc;
+  color: #aaa;
+  margin: 0 10px;
   text-decoration: none;
 }
 
-.nav-links a.active {
-  color: #ffd36b;
-}
-
-/* HERO */
+/* hero */
 .hero {
   text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 40px;
+  padding: 60px 20px;
 }
 
 .grad {
   background: linear-gradient(90deg, #ffd36b, #ff9f43);
   -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
 }
 
-.hero p {
-  margin-top: 10px;
-  opacity: 0.7;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #ffd36b;
-  color: #000;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
+/* layout */
+.container {
+  display: flex;
+  gap: 20px;
   padding: 20px;
+  flex-wrap: wrap;
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-/* CHAT */
+/* chat */
 .chat-box {
-  width: 90%;
-  max-width: 600px;
-  margin: auto;
+  flex: 2;
+  min-width: 300px;
   background: rgba(255,255,255,0.05);
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 #chat {
-  height: 300px;
+  height: 350px;
   overflow-y: auto;
-  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .msg {
-  margin: 10px 0;
+  margin: 8px 0;
 }
 
-.user {
-  text-align: right;
-  color: #ffd36b;
-}
+.user { text-align: right; color: #ffd36b; }
+.ai { text-align: left; color: #a8ffce; }
 
-.ai {
-  text-align: left;
-  color: #a8ffce;
-}
-
-.input-box {
+/* input */
+.input-row {
   display: flex;
   gap: 10px;
 }
@@ -132,21 +85,63 @@ nav {
 input {
   flex: 1;
   padding: 10px;
-  border: none;
   border-radius: 8px;
+  border: none;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 10px;
   background: #ffd36b;
   border: none;
-  cursor: pointer;
   border-radius: 8px;
+  cursor: pointer;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  opacity: 0.6;
+/* side panel */
+.side-panel {
+  flex: 1;
+  min-width: 250px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+/* scan animation */
+.scan {
+  color: #ffd36b;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.3; }
+}
+
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modal img {
+  width: 300px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  color: red;
 }
