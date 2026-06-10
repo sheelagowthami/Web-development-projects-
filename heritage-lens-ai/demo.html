@@ -7,22 +7,25 @@
 
 <body>
 
-<nav>
-  <div class="logo">🤖 AI Demo</div>
-  <div class="nav-links">
+<header class="navbar">
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <nav>
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
-    <a href="demo.html">AI Demo</a>
-  </div>
-</nav>
+    <a href="about.html">About</a>
+  </nav>
+</header>
 
-<section class="demo">
+<section class="hero">
+  <h1>💬 AI Explorer</h1>
+</section>
 
-  <div class="chat-box">
-    <div id="chat"></div>
+<section class="cards">
 
-    <input id="input" placeholder="Ask about Taj Mahal..." />
-    <button onclick="askAI()">Send</button>
+  <div class="card">
+    <input id="input" placeholder="Ask about Taj Mahal..." style="padding:10px; width:100%;">
+    <button onclick="askAI()" class="btn">Ask AI</button>
+    <p id="output"></p>
   </div>
 
 </section>
