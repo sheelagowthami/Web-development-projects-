@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI v2</title>
+  <title>HeritageLens AI — Level 2</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 
@@ -11,60 +11,64 @@
 
 <div class="bg"></div>
 
-<!-- NAV -->
 <nav>
   <div class="logo">🏛️ HeritageLens AI</div>
-  <div class="nav-links" id="navLinks">
-    <a href="#" class="active">Home</a>
-    <a href="#features">Features</a>
+  <div class="nav-links">
+    <a href="#">Home</a>
     <a href="#demo">AI Demo</a>
   </div>
-  <div class="menu" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- HERO -->
 <header class="hero">
-  <h1>
-    AI That Brings <span class="grad">Heritage Alive</span>
-  </h1>
-  <p>
-    Explore monuments with conversational AI, voice narration, and smart visual recognition simulation.
-  </p>
-  <a class="btn" href="#demo">Try AI Demo</a>
+  <h1>AI That Brings <span class="grad">History Alive</span></h1>
+  <p>Chat • Scan • Listen • Explore Heritage with AI</p>
 </header>
-
-<!-- FEATURES -->
-<section id="features">
-  <h2>🔥 Core Features</h2>
-
-  <div class="grid">
-    <div class="card">🤖 AI Heritage Chat</div>
-    <div class="card">📷 Lens Scan Mode</div>
-    <div class="card">🗺️ Smart Map Simulation</div>
-    <div class="card">🔊 Voice Narration</div>
-    <div class="card">🖼️ Visual Gallery</div>
-    <div class="card">💬 Memory Context AI</div>
-  </div>
-</section>
 
 <!-- DEMO -->
 <section id="demo">
-  <h2>🎯 AI Experience</h2>
 
-  <div class="chat-box">
-    <div id="chat"></div>
+  <div class="container">
 
-    <div class="input-box">
-      <input id="userInput" placeholder="Ask about any monument..." />
-      <button onclick="sendMessage()">Send</button>
+    <!-- CHAT BOX -->
+    <div class="chat-box">
+      <div id="chat"></div>
+
+      <div class="input-row">
+        <input id="userInput" placeholder="Ask about Taj Mahal, forts, temples..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
     </div>
+
+    <!-- SIDE PANEL -->
+    <div class="side-panel">
+
+      <!-- LENS MODE -->
+      <div class="card">
+        <h3>📷 Lens Scan Mode</h3>
+        <input id="lensInput" placeholder="Enter monument name..." />
+        <button onclick="lensScan()">Scan</button>
+        <div id="scanStatus"></div>
+      </div>
+
+      <!-- VOICE -->
+      <div class="card">
+        <h3>🔊 Voice Narration</h3>
+        <button onclick="speakLast()">Speak Last Response</button>
+        <button onclick="stopSpeech()">Stop</button>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>HeritageLens AI • Portfolio Project Upgrade</p>
-</footer>
+<!-- IMAGE MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">✖</span>
+    <img id="modalImg"/>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
