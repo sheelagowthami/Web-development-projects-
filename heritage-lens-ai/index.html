@@ -1,116 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeritageLens AI — Premium Cultural Exploration</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HeritageLens AI</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">HeritageLens <span class="ai-badge">AI</span></a>
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="features.html">Features</a>
-                <a href="demo.html">AI Demo</a>
-                <a href="about.html">About</a>
-            </div>
-        </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <span class="hero-tag">The Future of Cultural Heritage</span>
-            <h1>Explore India’s Heritage <br><span class="gradient-text">with Advanced AI</span></h1>
-            <p>Experience an immersive, high-fidelity journey through space and time. Our next-generation perception engine translates ancient history into interactive, real-time intelligence.</p>
-            <div class="hero-ctas">
-                <a href="demo.html" class="btn btn-primary">Try AI Demo</a>
-                <a href="#featured" class="btn btn-secondary">Explore Sites</a>
-            </div>
-        </div>
-    </header>
+<nav class="navbar">
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="demo.html">AI Demo</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
 
-    <section id="featured" class="featured-section">
-        <div class="section-header">
-            <h2>Featured Heritage Sites</h2>
-            <p>Discover India's most iconic monuments with AI-powered explanations</p>
-        </div>
+<header class="hero">
+  <h1>Explore India’s Heritage with AI</h1>
+  <p>AI-powered cultural exploration platform for world monuments</p>
+  <div class="hero-buttons">
+    <a href="demo.html" class="btn primary">Try AI Demo</a>
+    <a href="#categories" class="btn secondary">Explore Heritage Lens</a>
+  </div>
+</header>
 
-        <div class="monument-grid">
-            <div class="monument-card" onclick="openGalleryModal('Taj Mahal', 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80')">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Taj Mahal" class="monument-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-meta">Agra, Uttar Pradesh | 17th Century</span>
-                    <h3>Taj Mahal</h3>
-                    <p>The iconic white marble mausoleum, built by Shah Jahan in memory of his wife Mumtaz Mahal. A masterpiece of Mughal architecture and UNESCO World Heritage Site.</p>
-                </div>
-            </div>
+<section id="categories" class="section">
+  <h2>🇮🇳 Indian Monuments</h2>
+  <div class="grid">
 
-            <div class="monument-card" onclick="openGalleryModal('Red Fort', 'https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=1200&q=80')">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1585135497273-1a86b09fe70e?auto=format&fit=crop&w=600&q=80" alt="Red Fort" class="monument-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-meta">Delhi | 17th Century</span>
-                    <h3>Red Fort</h3>
-                    <p>Historic fortified palace built by Shah Jahan. Constructed from vast slabs of red sandstone, it stands as a monumental symbol of sovereign Mughal power.</p>
-                </div>
-            </div>
-
-            <div class="monument-card" onclick="openGalleryModal('Charminar', 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=80')">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=600&q=80" alt="Charminar" class="monument-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-meta">Hyderabad, Telangana | 16th Century</span>
-                    <h3>Charminar</h3>
-                    <p>An iconic mosque and monument featuring four grand minarets, built in 1591 by Sultan Muhammad Quli Qutb Shah to celebrate the end of a deadly plague.</p>
-                </div>
-            </div>
-
-            <div class="monument-card" onclick="openGalleryModal('Hampi', 'https://images.unsplash.com/photo-1600100397608-f010f423b971?auto=format&fit=crop&w=1200&q=80')">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600100397608-f010f423b971?auto=format&fit=crop&w=600&q=80" alt="Hampi" class="monument-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-meta">Karnataka | 14th-16th Century</span>
-                    <h3>Hampi</h3>
-                    <p>The legendary sacred capital of the historical Vijayanagara Empire. Features captivating, vast ruins of sophisticated temples and structural marvels.</p>
-                </div>
-            </div>
-
-            <div class="monument-card" onclick="openGalleryModal('Qutub Minar', 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80')">
-                <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=600&q=80" alt="Qutub Minar" class="monument-img">
-                </div>
-                <div class="card-content">
-                    <span class="card-meta">Delhi | 12th-13th Century</span>
-                    <h3>Qutub Minar</h3>
-                    <p>The tallest brick minaret in the world, standing at 72.5 meters. Erected by Qutb-ud-din Aibak, it is an exquisite triumph of early Indo-Islamic engineering.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="imageModal" class="modal">
-        <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
-        <div class="modal-content-wrapper">
-            <img class="modal-content" id="modalTargetImg" alt="Enlarged View">
-            <div id="modalCaption"></div>
-        </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?taj%20mahal" />
+      <h3>Taj Mahal</h3><p>Agra, Uttar Pradesh</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Taj%20Mahal" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Taj Mahal Agra" class="btn small">🗺️ Map</a>
+      </div>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 HeritageLens AI. Engineered for deep cultural preservation.</p>
-    </footer>
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?red%20fort" />
+      <h3>Red Fort</h3><p>Delhi</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Red%20Fort" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Red Fort Delhi" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?qutub%20minar" />
+      <h3>Qutub Minar</h3><p>Delhi</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Qutub%20Minar" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Qutub Minar Delhi" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?humayun%20tomb" />
+      <h3>Humayun’s Tomb</h3><p>Delhi</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Humayun%20Tomb" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Humayun Tomb Delhi" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?india%20gate" />
+      <h3>India Gate</h3><p>New Delhi</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=India%20Gate" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=India Gate New Delhi" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>🌍 Foreign Monuments</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?eiffel%20tower" />
+      <h3>Eiffel Tower</h3><p>France</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Eiffel%20Tower" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Eiffel Tower Paris" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?colosseum" />
+      <h3>Colosseum</h3><p>Italy</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Colosseum" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Colosseum Rome" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/800x600/?great%20wall%20of%20china" />
+      <h3>Great Wall of China</h3><p>China</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Great%20Wall%20of%20China" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Great Wall of China" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>🌏 7 Wonders</h2>
+  <div class="grid">
+
+    <div class="card"><img src="https://source.unsplash.com/800x600/?petra" /><h3>Petra</h3><p>Jordan</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Petra" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Petra Jordan" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card"><img src="https://source.unsplash.com/800x600/?machu%20picchu" /><h3>Machu Picchu</h3><p>Peru</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Machu%20Picchu" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Machu Picchu" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+    <div class="card"><img src="https://source.unsplash.com/800x600/?chichen%20itza" /><h3>Chichen Itza</h3><p>Mexico</p>
+      <div class="card-buttons">
+        <a href="demo.html?monument=Chichen%20Itza" class="btn small">🧠 About</a>
+        <a target="_blank" href="https://maps.google.com/?q=Chichen Itza" class="btn small">🗺️ Map</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
