@@ -309,4 +309,420 @@ function appendMessage(role, text, animate = true) {
 }
 
 function typeText(element, html, speed = 8) {
-  // Str
+  // Strip HTML for typing, then set HTML at end
+  const plain = html.replace(/<[^>]+>/g, '');
+  let i = 0;
+  const interval = setInterval(() => {
+    element.textContent = plain.slice(0, i) + (i < plain.length ? '▌' : '');
+    i += 3;
+    if (i >= plain.length) {
+      clearInterval(interval);
+      element.innerHTML = html;
+      addMsgActions(element, plain);
+      scrollChat();
+    }
+  }, speed);
+}
+
+function addMsgActions(bubble, text) {
+  const actions = document.createElement('div');
+  actions.className = 'msg-actions';
+  actions.innerHTML = `
+    <button class="msg-action-btn" onclick="speakText(this, '${encodeURIComponent(text.slice(0, 500))}')">🔊 Listen</button>
+    <button class="msg-action-btn" onclick="copyMsg(this)">📋 Copy</button>
+  `;
+  bubble.appendChild(actions);
+}
+
+function formatMarkdown(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/^# (.+)$/gm, '<h3 style="font-family:Playfair Display,serif;color:var(--gold2);margin-bottom:0.5rem">$1</h3>')
+    .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid rgba(201,168,76,0.2);margin:0.75rem 0">')
+    .replace(/✦ (.+)/g, '<div class="fact-chip">$1</div>')
+    .replace(/\n\n/g, '<br><br>')
+    .replace(/\n/g, '<br>');
+}
+
+function showTypingIndicator() {
+  const container = document.getElementById('chatMessages');
+  if (!container) return null;
+  const el = document.createElement('div');
+  el.className = 'msg ai'; el.id = 'typingIndicator';
+  el.innerHTML = `
+    <div class="msg-avatar">🏛️</div>
+    <div class="msg-bubble">
+      <div class="typing-indicator">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);margin-left:0.5rem;font-family:'JetBrains Mono',monospace">AI is thinking…</span>
+      </div>
+    </div>`;
+  container.appendChild(el);
+  scrollChat();
+  return el;
+}
+
+function scrollChat() {
+  const container = document.getElementById('chatMessages');
+  if (container) container.scrollTop = container.scrollHeight;
+}
+
+// =============================================
+// SEND MESSAGE
+// =============================================
+function sendMessage(inputOverride = null) {
+  const inputEl = document.getElementById('chatInput');
+  const text = inputOverride || (inputEl ? inputEl.value.trim() : '');
+  if (!text) return;
+
+  appendMessage('user', text, false);
+  if (inputEl) inputEl.value = '';
+
+  const typing = showTypingIndicator();
+  setTimeout(() => {
+    if (typing) typing.remove();
+    const response = generateAIResponse(text);
+    appendMessage('ai', response, true);
+  }, 900 + Math.random() * 600);
+}
+
+// =============================================
+// LENS MODE
+// =============================================
+function activateLensMode(placeName) {
+  const scanArea = document.getElementById('lensScanArea');
+  const scanResult = document.getElementById('scanResult');
+  const lensInput = document.getElementById('lensInput');
+
+  if (!scanArea || !scanResult) return;
+
+  const name = placeName || (lensInput ? lensInput.value.trim() : '');
+  if (!name) { showToast('Please enter a monument name to scan!'); return; }
+
+  scanArea.classList.add('scanning');
+  scanResult.classList.remove('show');
+
+  const key = detectMonument(name);
+  const db = key ? HERITAGE_DB[key] : null;
+
+  setTimeout(() => {
+    scanArea.classList.remove('scanning');
+    const displayName = db ? db.name : name;
+    const emoji = db ? db.emoji : '🏛️';
+
+    scanResult.classList.add('show');
+    scanResult.innerHTML = `
+      <span style="color:var(--gold2);display:block;margin-bottom:0.4rem">▶ HERITAGE LENS AI — SCAN COMPLETE</span>
+      <span class="scan-line-text">${emoji} Monument identified: ${displayName}</span>
+      <span style="display:block;margin-top:0.5rem;color:rgba(245,237,214,0.5)">→ Generating heritage story…</span>
+    `;
+
+    // Push to chat
+    setTimeout(() => {
+      sendMessage(`📷 [Lens Scan] ${displayName}`);
+    }, 800);
+  }, 2200);
+}
+
+// =============================================
+// VOICE NARRATION
+// =============================================
+function speakText(btn, encodedText) {
+  if (!window.speechSynthesis) { showToast('Voice not supported in this browser'); return; }
+
+  if (isSpeaking) {
+    window.speechSynthesis.cancel();
+    isSpeaking = false;
+    document.querySelectorAll('.voice-btn').forEach(b => b.classList.remove('speaking'));
+    if (btn) { btn.textContent = '🔊 Listen'; }
+    return;
+  }
+
+  let text = '';
+  if (encodedText) {
+    text = decodeURIComponent(encodedText);
+  } else if (currentMonument) {
+    const db = HERITAGE_DB[currentMonument];
+    text = `${db.name}. Located in ${db.location}. ${db.story}`;
+  } else {
+    text = 'Please explore a monument first by typing its name in the chat!';
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g, '').replace(/[*#→✦▶]/g, ''));
+  utterance.rate = voiceSpeed;
+  utterance.pitch = 0.9;
+  utterance.volume = 1;
+
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v => v.lang === 'en-IN') ||
+                    voices.find(v => v.lang.startsWith('en') && v.name.includes('Female')) ||
+                    voices.find(v => v.lang.startsWith('en'));
+  if (preferred) utterance.voice = preferred;
+
+  utterance.onstart = () => {
+    isSpeaking = true;
+    document.querySelectorAll('.voice-btn').forEach(b => b.classList.add('speaking'));
+    if (btn) btn.textContent = '⏹ Stop';
+    showToast('🔊 Voice narration started');
+  };
+  utterance.onend = () => {
+    isSpeaking = false;
+    document.querySelectorAll('.voice-btn').forEach(b => b.classList.remove('speaking'));
+    document.querySelectorAll('.voice-btn').forEach(b => { if (!b.dataset.original) b.textContent = '🔊 Listen'; });
+  };
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function narrate() {
+  speakText(null, null);
+}
+
+function updateVoiceSpeed(val) {
+  voiceSpeed = parseFloat(val);
+  const label = document.getElementById('speedLabel');
+  if (label) label.textContent = val + 'x';
+}
+
+// =============================================
+// INFO PANEL UPDATES
+// =============================================
+function updateInfoPanel(key) {
+  const db = HERITAGE_DB[key];
+  if (!db) return;
+
+  // Update map label
+  const mapLabel = document.getElementById('mapLocationLabel');
+  if (mapLabel) mapLabel.textContent = `📍 ${db.location}`;
+
+  // Update map iframe if present
+  const mapIframe = document.getElementById('mapIframe');
+  if (mapIframe) {
+    mapIframe.style.display = 'block';
+    mapIframe.src = `https://maps.google.com/maps?q=${db.mapQuery}&output=embed`;
+  }
+  const mapPlaceholder = document.getElementById('mapPlaceholder');
+  if (mapPlaceholder) mapPlaceholder.style.display = 'none';
+
+  // Update facts
+  const factsList = document.getElementById('factsList');
+  if (factsList) {
+    factsList.innerHTML = db.facts.slice(0, 3).map(f => `<div class="fact-chip">${f}</div>`).join('');
+  }
+
+  // Update gallery
+  updateGallery(db);
+
+  // Update current monument name
+  const currentName = document.getElementById('currentMonumentName');
+  if (currentName) currentName.textContent = `${db.emoji} ${db.name}`;
+}
+
+function updateGallery(db) {
+  const grid = document.getElementById('imgGrid');
+  if (!grid) return;
+
+  const visuals = [
+    { emoji: db.emoji, label: 'Main View' },
+    { emoji: '🌅', label: 'Dawn View' },
+    { emoji: '🌙', label: 'Night View' },
+    { emoji: '🎨', label: 'Art Detail' },
+    { emoji: '🏔️', label: 'Landscape' },
+    { emoji: '🔍', label: 'Close-Up' }
+  ];
+
+  grid.innerHTML = visuals.map((v, i) => `
+    <div class="img-thumb" onclick="openModal('${db.name}', '${v.label}', '${v.emoji}')">
+      <span>${v.emoji}</span>
+      <div class="img-overlay">🔍</div>
+    </div>
+  `).join('');
+}
+
+// =============================================
+// MODAL
+// =============================================
+function openModal(name, view, emoji) {
+  const overlay = document.getElementById('imgModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+
+  if (!overlay) return;
+
+  if (modalImg) { modalImg.textContent = emoji; }
+  if (modalTitle) modalTitle.textContent = `${name} — ${view}`;
+  if (modalDesc) modalDesc.textContent = `${view} of ${name}. ${HERITAGE_DB[detectMonument(name)]?.cultural?.slice(0, 120) || 'One of India\'s most treasured heritage monuments.'}…`;
+
+  overlay.classList.add('open');
+}
+
+function closeModal() {
+  const overlay = document.getElementById('imgModal');
+  if (overlay) overlay.classList.remove('open');
+}
+
+// =============================================
+// MODE SWITCHING
+// =============================================
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById(`mode-${mode}`);
+  if (btn) btn.classList.add('active');
+
+  const textPanel = document.getElementById('textModePanel');
+  const lensPanel = document.getElementById('lensModePanel');
+
+  if (mode === 'text') {
+    if (textPanel) textPanel.style.display = 'flex';
+    if (lensPanel) lensPanel.style.display = 'none';
+  } else {
+    if (textPanel) textPanel.style.display = 'none';
+    if (lensPanel) lensPanel.style.display = 'block';
+  }
+
+  showToast(mode === 'lens' ? '📷 Lens Mode activated' : '💬 Text Mode activated');
+}
+
+// =============================================
+// QUICK TAGS
+// =============================================
+function sendQuickTag(text) {
+  sendMessage(text);
+}
+
+// =============================================
+// COPY
+// =============================================
+function copyMsg(btn) {
+  const bubble = btn.closest('.msg-bubble');
+  if (!bubble) return;
+  const text = bubble.innerText.replace(/🔊 Listen|📋 Copy/g, '').trim();
+  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard!'));
+}
+
+// =============================================
+// TOAST
+// =============================================
+function showToast(msg) {
+  let toast = document.getElementById('globalToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast'; toast.id = 'globalToast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// =============================================
+// SCROLL ANIMATIONS
+// =============================================
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+}
+
+// =============================================
+// NAV MOBILE TOGGLE
+// =============================================
+function initNav() {
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target) && !links.contains(e.target)) {
+        links.classList.remove('open');
+      }
+    });
+  }
+
+  // Set active link
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    if (a.getAttribute('href') === path) a.classList.add('active');
+  });
+}
+
+// =============================================
+// KEYBOARD SHORTCUTS
+// =============================================
+function initKeyboard() {
+  const input = document.getElementById('chatInput');
+  if (input) {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); sendMessage();
+      }
+    });
+    // Auto-resize
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+    });
+  }
+}
+
+// =============================================
+// INIT WELCOME MESSAGE
+// =============================================
+function initDemo() {
+  setTimeout(() => {
+    appendMessage('ai', `Namaste! 🙏 Welcome to **HeritageLens AI** — your intelligent cultural heritage companion.
+
+I can tell you rich historical stories about India's greatest monuments, narrate them aloud, show you locations, and even let you "scan" places with the **Heritage Lens Mode**.
+
+**Try these popular monuments:**`, false);
+
+    // Preload gallery with Taj Mahal
+    updateInfoPanel('taj mahal');
+    currentMonument = 'taj mahal';
+  }, 400);
+}
+
+// =============================================
+// VOICES LOAD
+// =============================================
+window.speechSynthesis && window.speechSynthesis.addEventListener('voiceschanged', () => {
+  // voices loaded
+});
+
+// =============================================
+// DOM READY
+// =============================================
+document.addEventListener('DOMContentLoaded', () => {
+  initNav();
+  initScrollAnimations();
+  initKeyboard();
+
+  if (document.getElementById('chatMessages')) {
+    initDemo();
+  }
+
+  // Modal close on overlay click
+  const modal = document.getElementById('imgModal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  // Escape key closes modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+});
