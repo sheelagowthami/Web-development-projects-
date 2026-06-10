@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI</title>
+  <title>HeritageLens AI — Explore History Instantly</title>
+
   <link rel="stylesheet" href="style.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -14,65 +17,81 @@
 <!-- NAV -->
 <nav>
   <div class="nav-brand">
-    <span>🏛️ HeritageLens</span>
-    <small class="ai-tag">AI</small>
+    🏛️ HeritageLens <span class="ai">AI</span>
   </div>
 
-  <div class="nav-links" id="navLinks">
+  <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
     <a href="features.html">Features</a>
-    <a href="demo.html" class="nav-cta">Try Demo</a>
-  </div>
-
-  <div class="nav-toggle" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+    <a href="about.html">About</a>
+    <a href="demo.html" class="cta">Try AI</a>
   </div>
 </nav>
 
-<!-- HERO (NEW AI SEARCH EXPERIENCE) -->
-<section class="hero">
+<!-- HERO -->
+<header class="hero">
 
   <div class="hero-box glass">
 
+    <div class="badge">⚡ AI POWERED HERITAGE EXPLORER</div>
+
     <h1>
-      HeritageLens <span class="gradient-text">AI</span>
+      Ask anything about<br>
+      <span class="gradient-text">India’s history</span>
     </h1>
 
-    <p class="subtitle">
-      Ask anything about India’s monuments — get instant AI-powered heritage stories.
+    <p>
+      Instantly understand monuments, stories, kings, architecture, and hidden history using AI.
     </p>
 
-    <!-- AI SEARCH BAR -->
-    <div class="search-box">
-      <input type="text" placeholder="Try: 'Tell me about Taj Mahal'" id="searchInput"/>
-      <button onclick="askAI()">🔍</button>
+    <!-- AI SEARCH INPUT -->
+    <div class="ai-search">
+      <input type="text" placeholder="Try: Tell me about Taj Mahal..." />
+      <button>Ask AI →</button>
     </div>
 
     <!-- QUICK SUGGESTIONS -->
     <div class="chips">
-      <button onclick="quickAsk('Taj Mahal')">Taj Mahal</button>
-      <button onclick="quickAsk('Red Fort')">Red Fort</button>
-      <button onclick="quickAsk('Hampi')">Hampi</button>
-      <button onclick="quickAsk('Konark Sun Temple')">Konark</button>
+      <span>Red Fort</span>
+      <span>Taj Mahal</span>
+      <span>Hampi</span>
+      <span>Konark Temple</span>
     </div>
 
   </div>
 
+</header>
+
+<!-- FEATURE PREVIEW -->
+<section class="preview">
+
+  <div class="card glass">
+    🤖 AI Storytelling
+    <p>Human-like historical explanations</p>
+  </div>
+
+  <div class="card glass">
+    📷 Lens Mode
+    <p>Scan monuments like Google Lens</p>
+  </div>
+
+  <div class="card glass">
+    🗺️ Smart Map
+    <p>Explore locations instantly</p>
+  </div>
+
 </section>
 
-<!-- AI RESPONSE BOX -->
-<section class="response-section">
-  <div class="glass response-box" id="responseBox">
-    <p class="muted">Your AI heritage story will appear here...</p>
-  </div>
+<!-- CTA -->
+<section class="cta-section glass">
+  <h2>Experience Heritage Like Never Before</h2>
+  <a href="demo.html" class="btn">Launch AI Demo</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>HeritageLens AI — Smart Cultural Experience System</p>
+  <p>HeritageLens AI — Built for Smart Cultural Exploration</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
