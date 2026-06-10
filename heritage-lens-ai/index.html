@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HeritageLens AI — Level 4</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeritageLens AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -12,47 +12,32 @@
 <div class="bg"></div>
 
 <nav>
-  <div class="logo">🏛️ HeritageLens AI Pro</div>
-  <div>
-    <button onclick="startCamera()">📸 Scan</button>
-    <button onclick="loadHistory()">🧠 History</button>
+  <div class="logo">🏛️ HeritageLens AI</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="demo.html">AI Demo</a>
+    <a href="about.html">About</a>
   </div>
 </nav>
 
 <header class="hero">
-  <h1>HeritageLens <span class="grad">AI Final Boss</span></h1>
-  <p>Vision AI • Memory • Smart Tourism Engine</p>
+  <h1>Discover History with <span>AI Intelligence</span></h1>
+  <p>Explore monuments, stories, culture & heritage using smart AI tourism assistant</p>
+  <a class="btn" href="demo.html">🚀 Try AI Demo</a>
 </header>
 
-<section class="app">
-
-  <!-- CAMERA PANEL -->
-  <div class="panel">
-    <h2>📸 Live Scan</h2>
-
-    <video id="video" autoplay></video>
-    <canvas id="canvas" hidden></canvas>
-
-    <button onclick="capture()">Capture & Identify</button>
-
-    <div id="visionResult"></div>
-  </div>
-
-  <!-- AI CHAT -->
-  <div class="panel">
-    <h2>🤖 Heritage AI</h2>
-
-    <div id="chat"></div>
-
-    <input id="input" placeholder="Ask about monuments..." />
-    <button onclick="ask()">Ask AI</button>
-  </div>
-
+<section class="cards">
+  <div class="card">🤖 AI Heritage Chat</div>
+  <div class="card">📷 Smart Vision Scan</div>
+  <div class="card">🗺️ Live Map Explorer</div>
+  <div class="card">🔊 Voice Narration</div>
 </section>
 
-<script src="ai.js"></script>
-<script src="vision.js"></script>
-<script src="app.js"></script>
+<footer>
+  <p>© 2026 HeritageLens AI • Built for Portfolio Excellence</p>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
