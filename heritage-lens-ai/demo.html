@@ -1,33 +1,269 @@
-<!-- demo.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HeritageLens Demo</title>
-<link rel="stylesheet" href="style.css" />
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>HeritageLens AI Explorer</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
 </head>
+
 <body>
-<nav class="navbar sticky">
-  <div class="logo">HeritageLens AI</div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+🏛️ HeritageLens AI
+</div>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="about.html">
+About
+</a>
+</li>
+
+<li>
+<a href="features.html">
+Features
+</a>
+</li>
+
+<li>
+<a href="demo.html">
+AI Explorer
+</a>
+</li>
+
+</ul>
+
 </nav>
-<section class="demo-section">
-  <div class="demo-header">
-    <h2>Heritage Insights</h2>
-    <button id="scanButton" class="btn-primary">SCAN IMAGE</button>
-    <button id="listenBtn" class="btn-secondary">🔊 Listen</button>
-    <button id="stopBtn" class="btn-secondary">Stop</button>
-  </div>
-  <div class="demo-content">
-    <div id="recognizedInfo" class="info-box"></div>
-    <div id="mapContainer" class="map-box"></div>
-    <div id="aiResponse" class="response-box"></div>
-  </div>
+
+<!-- HERO -->
+
+<section class="section">
+
+<h2>
+🤖 AI Heritage Explorer
+</h2>
+
+<p style="text-align:center; margin-top:10px; color:#ccc;">
+Ask HeritageLens AI about monuments, history, tourism, culture, and heritage.
+</p>
+
 </section>
 
-<!-- Hidden file input for Scan button -->
-<input type="file" accept="image/*" id="imageInput" style="display:none" />
+<!-- CHAT -->
+
+<div class="chat-wrapper">
+
+<div class="chat-container">
+
+<div
+id="chatMessages"
+class="chat-messages">
+
+<div class="message ai-message">
+
+👋 Welcome to HeritageLens AI
+
+Ask me about:
+
+🏛 Taj Mahal
+
+🏛 Hampi
+
+🏛 Red Fort
+
+🏛 Qutub Minar
+
+🏛 Victoria Memorial
+
+🌍 Eiffel Tower
+
+🌍 Colosseum
+
+🌍 Great Wall of China
+
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="userInput"
+placeholder="Ask about any monument...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SCANNER -->
+
+<section class="section">
+
+<h2>
+📷 Heritage Lens Scanner
+</h2>
+
+<p style="text-align:center; color:#ccc; margin-bottom:25px;">
+
+Upload a monument image and let AI identify it.
+
+</p>
+
+<div class="coming-box">
+
+<input
+type="file"
+id="imageInput"
+accept="image/*">
+
+<br><br>
+
+<button
+class="primary-btn"
+onclick="scanMonument()">
+
+📷 Scan Monument
+
+</button>
+
+</div>
+
+</section>
+
+<!-- VOICE -->
+
+<section class="section">
+
+<h2>
+🔊 Voice Narration
+</h2>
+
+<div class="coming-box">
+
+<p>
+
+Click below to hear a HeritageLens AI explanation.
+
+</p>
+
+<br>
+
+<button
+class="primary-btn"
+onclick="speakText('Welcome to HeritageLens AI. Explore heritage and culture through artificial intelligence.')">
+
+🔊 Listen
+
+</button>
+
+<button
+class="secondary-btn"
+onclick="stopSpeech()">
+
+⏹ Stop
+
+</button>
+
+</div>
+
+</section>
+
+<!-- MAP -->
+
+<section class="section">
+
+<h2>
+🗺️ Heritage Maps
+</h2>
+
+<div class="coming-box">
+
+<p>
+
+Explore monument locations directly on Google Maps.
+
+</p>
+
+<br>
+
+<a
+href="https://maps.google.com"
+target="_blank"
+class="primary-btn">
+
+Open Maps
+
+</a>
+
+</div>
+
+</section>
+
+<!-- MODAL -->
+
+<div
+class="modal"
+id="imageModal">
+
+<span
+class="close-modal"
+onclick="closeModal()">
+
+&times;
+
+</span>
+
+<img
+id="modalImage"
+src="">
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 HeritageLens AI
+
+Built by LoneSpark Labs
+
+</p>
+
+</footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
