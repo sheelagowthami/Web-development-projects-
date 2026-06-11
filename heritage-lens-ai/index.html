@@ -1,53 +1,299 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HeritageLens AI</title>
-<link rel="stylesheet" href="style.css" />
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
 <nav class="navbar">
-  <div class="logo">HeritageLens AI</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#categories">Categories</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="features.html">Features</a></li>
-  </ul>
-</nav>
 
-<section class="hero" id="home">
-  <h1 class="hero-title">Explore India’s Heritage with AI</h1>
-  <div class="hero-buttons">
-    <button class="btn-primary" id="demoBtn">Try AI Demo</button>
-    <button class="btn-secondary" id="exploreBtn">Explore Heritage Lens</button>
-  </div>
-</section>
-
-<section id="categories" class="categories-section">
-  <h2 class="section-title">Indian Monuments</h2>
-  <div class="cards-container" id="indian-monuments"></div>
-</section>
-
-<section id="foreign" class="categories-section">
-  <h2 class="section-title">Foreign Monuments</h2>
-  <div class="cards-container" id="foreign-monuments"></div>
-</section>
-
-<section id="wonders" class="categories-section">
-  <h2 class="section-title">7 Wonders</h2>
-  <div class="cards-container" id="wonders-list"></div>
-</section>
-
-<!-- Modal for image gallery -->
-<div id="imageModal" class="modal">
-  <span class="close" id="closeModal">&times;</span>
-  <img class="modal-content" id="modalImage" />
-  <div class="modal-caption" id="modalCaption"></div>
+<div class="logo">
+🏛️ HeritageLens AI
 </div>
 
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="demo.html">AI Explorer</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Explore India's Heritage with AI
+</h1>
+
+<p>
+Discover monuments, culture and history through intelligent storytelling.
+</p>
+
+<div class="hero-buttons">
+
+<a href="demo.html" class="primary-btn">
+Try AI Demo
+</a>
+
+<a href="#monuments" class="secondary-btn">
+Explore Heritage Lens
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="monuments" class="section">
+
+<h2>🇮🇳 Indian Heritage Collection</h2>
+
+<div class="card-grid">
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1564507592333-c60657eea523" alt="Taj Mahal">
+
+<div class="card-content">
+
+<h3>Taj Mahal</h3>
+
+<p>Agra, Uttar Pradesh</p>
+
+<p>Symbol of love and Mughal architecture.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Taj%20Mahal" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Taj+Mahal" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Red Fort">
+
+<div class="card-content">
+
+<h3>Red Fort</h3>
+
+<p>Delhi</p>
+
+<p>Historic Mughal fortress.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Red%20Fort" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Red+Fort" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b" alt="Hampi">
+
+<div class="card-content">
+
+<h3>Hampi</h3>
+
+<p>Karnataka</p>
+
+<p>Ancient Vijayanagara Empire city.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Hampi" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Hampi" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da" alt="Qutub Minar">
+
+<div class="card-content">
+
+<h3>Qutub Minar</h3>
+
+<p>Delhi</p>
+
+<p>World's tallest brick minaret.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Qutub%20Minar" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Qutub+Minar" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1599661046289-e31897846e41" alt="Mysore Palace">
+
+<div class="card-content">
+
+<h3>Mysore Palace</h3>
+
+<p>Karnataka</p>
+
+<p>Royal palace of Mysore.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Mysore%20Palace" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Mysore+Palace" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073" alt="Konark">
+
+<div class="card-content">
+
+<h3>Konark Sun Temple</h3>
+
+<p>Odisha</p>
+
+<p>Famous chariot-shaped temple.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Konark" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Konark+Sun+Temple" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="heritage-card">
+
+<img src="https://images.unsplash.com/photo-1548013146-72479768bada" alt="Victoria Memorial">
+
+<div class="card-content">
+
+<h3>Victoria Memorial</h3>
+
+<p>West Bengal</p>
+
+<p>Historic museum and monument.</p>
+
+<div class="buttons">
+
+<a href="demo.html?place=Victoria%20Memorial" class="about-btn">
+🧠 About
+</a>
+
+<a href="https://maps.google.com/?q=Victoria+Memorial" target="_blank" class="map-btn">
+🗺️ Map
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>🌍 Global Heritage Collection</h2>
+
+<div class="coming-box">
+
+Eiffel Tower • Colosseum • Great Wall of China • Petra • Machu Picchu • Chichen Itza • Statue of Liberty
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>🌏 Seven Wonders</h2>
+
+<div class="coming-box">
+
+Great Wall • Petra • Colosseum • Chichen Itza • Machu Picchu • Taj Mahal • Christ the Redeemer
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 HeritageLens AI | LoneSpark Labs
+</p>
+
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
