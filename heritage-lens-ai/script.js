@@ -1,239 +1,438 @@
-// script.js
+// ============================
+// HERITAGELENS AI
+// PREMIUM SCRIPT
+// ============================
 
-const monuments = {
-  "Taj Mahal": {
-    name: "Taj Mahal",
-    location: "Agra, Uttar Pradesh",
-    images: ["https://upload.wikimedia.org/wikipedia/commons/d/d4/Taj_Mahal_in_March_2004.jpg"],
-    description: "An iconic white marble mausoleum built by Mughal emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
-    history: "Construction started in 1632 and completed in 1653. Built by Shah Jahan, it's a UNESCO World Heritage Site.",
-    builder: "Ustad Ahmad Lahori",
-    year: "1632-1653",
-    importance: "Symbol of love and Mughal architecture.",
-    facts: ["One of the New Seven Wonders of the World.", "Features extensive intricate carvings and inlay work."],
-    UNESCO: "Yes",
-    lat: 27.1751,
-    lon: 78.0421
-  },
-  // add more monuments similarly...
+let chatHistory = [];
+
+// MONUMENT DATABASE
+
+const monumentDatabase = {
+
+"taj mahal": {
+location:"Agra, Uttar Pradesh",
+year:"1632–1653",
+builder:"Emperor Shah Jahan",
+info:"The Taj Mahal is one of the world's most famous monuments and a UNESCO World Heritage Site. Built in memory of Mumtaz Mahal, it symbolizes eternal love and Mughal architecture excellence.",
+map:"https://maps.google.com/?q=Taj+Mahal"
+},
+
+"hampi": {
+location:"Karnataka",
+year:"14th Century",
+builder:"Vijayanagara Empire",
+info:"Hampi was the capital of the Vijayanagara Empire and is known for its stunning temple complexes and ancient ruins.",
+map:"https://maps.google.com/?q=Hampi"
+},
+
+"red fort": {
+location:"Delhi",
+year:"1638",
+builder:"Shah Jahan",
+info:"The Red Fort served as the main residence of Mughal emperors and is a major symbol of Indian history.",
+map:"https://maps.google.com/?q=Red+Fort"
+},
+
+"qutub minar": {
+location:"Delhi",
+year:"1193",
+builder:"Qutb ud-Din Aibak",
+info:"The Qutub Minar is the tallest brick minaret in the world and a UNESCO heritage site.",
+map:"https://maps.google.com/?q=Qutub+Minar"
+},
+
+"mysore palace": {
+location:"Karnataka",
+year:"1912",
+builder:"Wodeyar Dynasty",
+info:"Mysore Palace is one of India's most visited monuments and showcases Indo-Saracenic architecture.",
+map:"https://maps.google.com/?q=Mysore+Palace"
+},
+
+"konark": {
+location:"Odisha",
+year:"1250 CE",
+builder:"King Narasimhadeva I",
+info:"Konark Sun Temple is designed as a gigantic stone chariot dedicated to the Sun God.",
+map:"https://maps.google.com/?q=Konark+Sun+Temple"
+},
+
+"victoria memorial": {
+location:"Kolkata",
+year:"1921",
+builder:"British Government",
+info:"Victoria Memorial is a magnificent marble monument dedicated to Queen Victoria.",
+map:"https://maps.google.com/?q=Victoria+Memorial"
+},
+
+"eiffel tower": {
+location:"Paris, France",
+year:"1889",
+builder:"Gustave Eiffel",
+info:"The Eiffel Tower is one of the world's most recognizable landmarks and a symbol of France.",
+map:"https://maps.google.com/?q=Eiffel+Tower"
+},
+
+"colosseum": {
+location:"Rome, Italy",
+year:"80 AD",
+builder:"Emperor Titus",
+info:"The Colosseum is the largest ancient amphitheater ever built and a major Roman landmark.",
+map:"https://maps.google.com/?q=Colosseum"
+},
+
+"great wall": {
+location:"China",
+year:"7th Century BC",
+builder:"Various Chinese Dynasties",
+info:"The Great Wall of China is one of the greatest engineering achievements in history.",
+map:"https://maps.google.com/?q=Great+Wall+of+China"
+}
+
 };
 
-const foreignMonuments = {
-  "Eiffel Tower": {
-    name: "Eiffel Tower",
-    location: "Paris, France",
-    images: ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg"],
-    description: "A wrought-iron lattice tower on the Champ de Mars, an iconic symbol of Paris.",
-    history: "Constructed between 1887-1889 for the 1889 World's Fair.",
-    builder: "Gustave Eiffel",
-    year: "1887-1889",
-    importance: "Global cultural icon, engineering marvel.",
-    facts: ["Was the tallest man-made structure for 41 years.", "Visited by millions annually."],
-    UNESCO: "No",
-    lat: 48.8584,
-    lon: 2.2945
-  },
-  // add more foreign monuments...
+// ============================
+// CHAT SYSTEM
+// ============================
+
+function sendMessage(){
+
+const input = document.getElementById("userInput");
+
+if(!input) return;
+
+const text = input.value.trim();
+
+if(text === "") return;
+
+addMessage(text,"user");
+
+chatHistory.push(text);
+
+input.value="";
+
+showTyping();
+
+setTimeout(()=>{
+
+removeTyping();
+
+const reply = fakeAIResponse(text);
+
+typeWriter(reply);
+
+},1200);
+
+}
+
+// ============================
+// AI RESPONSE
+// ============================
+
+function fakeAIResponse(userText){
+
+const query = userText.toLowerCase();
+
+for(let key in monumentDatabase){
+
+if(query.includes(key)){
+
+let monument = monumentDatabase[key];
+
+return `
+🏛 Monument: ${key.toUpperCase()}
+
+📍 Location:
+${monument.location}
+
+👷 Builder:
+${monument.builder}
+
+📅 Construction:
+${monument.year}
+
+📖 History:
+${monument.info}
+
+🌍 Tourism Value:
+A major cultural and tourism destination attracting visitors from around the world.
+
+⭐ Heritage Importance:
+Represents architectural excellence and cultural identity.
+
+🗺 Map:
+${monument.map}
+`;
+
+}
+
+}
+
+return `
+Hello! I am HeritageLens AI.
+
+Try asking about:
+
+• Taj Mahal
+• Hampi
+• Red Fort
+• Qutub Minar
+• Mysore Palace
+• Konark Sun Temple
+• Victoria Memorial
+• Eiffel Tower
+• Colosseum
+• Great Wall of China
+
+I can provide history, builders, tourism significance and cultural importance.
+`;
+
+}
+
+// ============================
+// CHAT UI
+// ============================
+
+function addMessage(message,type){
+
+const container =
+document.getElementById("chatMessages");
+
+if(!container) return;
+
+const div =
+document.createElement("div");
+
+div.className =
+`message ${type}-message`;
+
+div.innerText = message;
+
+container.appendChild(div);
+
+container.scrollTop =
+container.scrollHeight;
+
+}
+
+// ============================
+// TYPING
+// ============================
+
+function showTyping(){
+
+const container =
+document.getElementById("chatMessages");
+
+const div =
+document.createElement("div");
+
+div.className =
+"message ai-message typing";
+
+div.id =
+"typingIndicator";
+
+div.innerHTML =
+"🤖 HeritageLens AI is thinking...";
+
+container.appendChild(div);
+
+}
+
+function removeTyping(){
+
+const typing =
+document.getElementById("typingIndicator");
+
+if(typing){
+
+typing.remove();
+
+}
+
+}
+
+function typeWriter(text){
+
+const container =
+document.getElementById("chatMessages");
+
+const div =
+document.createElement("div");
+
+div.className =
+"message ai-message";
+
+container.appendChild(div);
+
+let i = 0;
+
+const speed = 10;
+
+const interval = setInterval(()=>{
+
+if(i < text.length){
+
+div.innerHTML += text.charAt(i);
+
+i++;
+
+}else{
+
+clearInterval(interval);
+
+}
+
+},speed);
+
+container.scrollTop =
+container.scrollHeight;
+
+}
+
+// ============================
+// VOICE
+// ============================
+
+let speechInstance;
+
+function speakText(text){
+
+speechInstance =
+new SpeechSynthesisUtterance(text);
+
+speechInstance.rate = 1;
+
+speechInstance.pitch = 1;
+
+speechSynthesis.speak(speechInstance);
+
+}
+
+function stopSpeech(){
+
+speechSynthesis.cancel();
+
+}
+
+// ============================
+// IMAGE SCANNER
+// ============================
+
+function scanMonument(){
+
+const fileInput =
+document.getElementById("imageInput");
+
+if(!fileInput || !fileInput.files[0]){
+
+alert("Please upload an image.");
+
+return;
+
+}
+
+showTyping();
+
+setTimeout(()=>{
+
+removeTyping();
+
+typeWriter(`
+📷 HeritageLens Scan Result
+
+Detected Monument:
+Taj Mahal (Demo Recognition)
+
+Confidence:
+96%
+
+Location:
+Agra, Uttar Pradesh
+
+UNESCO World Heritage Site
+
+AI Analysis:
+One of the finest examples of Mughal architecture and among the most visited heritage sites in the world.
+`);
+
+},1500);
+
+}
+
+// ============================
+// MAP
+// ============================
+
+function generateMapLink(monument){
+
+const place =
+encodeURIComponent(monument);
+
+return
+`https://maps.google.com/?q=${place}`;
+
+}
+
+// ============================
+// IMAGE MODAL
+// ============================
+
+function openModal(src){
+
+const modal =
+document.getElementById("imageModal");
+
+const image =
+document.getElementById("modalImage");
+
+if(!modal || !image) return;
+
+modal.style.display="flex";
+
+image.src = src;
+
+}
+
+function closeModal(){
+
+const modal =
+document.getElementById("imageModal");
+
+if(modal){
+
+modal.style.display="none";
+
+}
+
+}
+
+// ============================
+// AUTO MONUMENT FROM URL
+// ============================
+
+window.onload = function(){
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const place =
+params.get("place");
+
+if(place){
+
+setTimeout(()=>{
+
+const reply =
+fakeAIResponse(place);
+
+typeWriter(reply);
+
+},800);
+
+}
+
 };
-
-const wonders = ["Great Wall of China", "Petra", "Colosseum", "Chichen Itza", "Machu Picchu", "Taj Mahal", "Christ the Redeemer"];
-
-const allMonuments = { ...monuments, ...foreignMonuments };
-
-const categories = {
-  "Indian Monuments": Object.values(monuments),
-  "Foreign Monuments": Object.values(foreignMonuments),
-  "7 Wonders": wonders.map(name => allMonuments[name])
-};
-
-function populateCards() {
-  for (const [category, items] of Object.entries(categories)) {
-    const container = document.getElementById(
-      category === "Indian Monuments"
-        ? "indian-monuments"
-        : category === "Foreign Monuments"
-        ? "foreign-monuments"
-        : "wonders-list"
-    );
-    items.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "card";
-
-      const img = document.createElement("img");
-      img.src = item.images[0];
-      card.appendChild(img);
-
-      const infoDiv = document.createElement("div");
-      infoDiv.className = "card-info";
-
-      const title = document.createElement("div");
-      title.className = "card-title";
-      title.innerText = item.name;
-
-      const loc = document.createElement("div");
-      loc.className = "card-location";
-      loc.innerText = item.location;
-
-      infoDiv.appendChild(title);
-      infoDiv.appendChild(loc);
-
-      const btnContainer = document.createElement("div");
-      btnContainer.className = "card-buttons";
-
-      const aboutBtn = document.createElement("button");
-      aboutBtn.innerText = "🧠 About";
-      aboutBtn.onclick = () => {
-        sendAIMessage(`Tell me about ${item.name}`);
-        window.location.href = "demo.html";
-      };
-
-      const mapBtn = document.createElement("button");
-      mapBtn.innerText = "🗺️ Map";
-      mapBtn.onclick = () => {
-        generateMapLink(item.lat, item.lon);
-      };
-
-      btnContainer.appendChild(aboutBtn);
-      btnContainer.appendChild(mapBtn);
-
-      infoDiv.appendChild(btnContainer);
-      card.appendChild(infoDiv);
-      container.appendChild(card);
-    });
-  }
-}
-
-populateCards();
-
-// AI Chat system
-const chatHistory = [];
-
-function sendAIMessage(message) {
-  chatHistory.push({ role: "user", content: message });
-  fakeAIResponse(message);
-}
-
-function fakeAIResponse(message) {
-  const responseBox = document.getElementById("aiResponse");
-  let responseText = "";
-
-  // Basic keyword detection
-  for (const key in allMonuments) {
-    if (message.toLowerCase().includes(key.toLowerCase())) {
-      const monument = allMonuments[key];
-      responseText = `
-        <h3>${monument.name}</h3>
-        <p><strong>History:</strong> ${monument.history}</p>
-        <p><strong>Builder:</strong> ${monument.builder}</p>
-        <p><strong>Year:</strong> ${monument.year}</p>
-        <p><strong>Importance:</strong> ${monument.importance}</p>
-        <p><strong>Interesting Facts:</strong> ${monument.facts.join(", ")}</p>
-        <p><strong>UNESCO World Heritage:</strong> ${monument.UNESCO}</p>
-      `;
-      break;
-    }
-  }
-  if (!responseText) {
-    responseText = "<p>Sorry, I couldn't find information about that monument.</p>";
-  }
-  responseBox.innerHTML = responseText;
-  typeWriter(responseBox);
-}
-
-function typeWriter(element) {
-  const text = element.innerHTML;
-  element.innerHTML = "";
-  let i = 0;
-  const speed = 50;
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-  type();
-}
-
-// Map link generator
-function generateMapLink(lat, lon) {
-  const link = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-  document.getElementById("mapContainer").innerHTML = `<iframe width="100%" height="300" frameborder="0" style="border:0" src="${link}" allowfullscreen></iframe>`;
-}
-
-// Image upload and recognition simulation
-const scanBtn = document.getElementById("scanButton");
-const imageInput = document.getElementById("imageInput");
-const recognizedInfo = document.getElementById("recognizedInfo");
-const mapContainer = document.getElementById("mapContainer");
-const aiResponse = document.getElementById("aiResponse");
-
-scanBtn.onclick = () => {
-  imageInput.click();
-};
-
-imageInput.onchange = () => {
-  if (imageInput.files && imageInput.files[0]) {
-    recognizedInfo.innerHTML = "<p>Recognizing monument...</p>";
-    // simulate recognition delay
-    setTimeout(() => {
-      // Randomly pick a monument for demo
-      const allNames = Object.keys(allMonuments);
-      const randomName = allNames[Math.floor(Math.random() * allNames.length)];
-      const monument = allMonuments[randomName];
-
-      recognizedInfo.innerHTML = `
-        <h3>${monument.name}</h3>
-        <p>Location: ${monument.location}</p>
-        <p>Description: ${monument.description}</p>
-      `;
-      generateMapLink(monument.lat, monument.lon);
-      // Show info card
-      aiResponse.innerHTML = `
-        <h3>${monument.name}</h3>
-        <p>${monument.description}</p>
-        <button id="aiSpeakBtn">🔊 Listen</button>
-      `;
-      document.getElementById("aiSpeakBtn").onclick = () => {
-        speakText(`${monument.name}. ${monument.description}`);
-      };
-    }, 1500);
-  }
-};
-
-// Speech synthesis
-function speakText(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  speechSynthesis.speak(utterance);
-}
-
-// Modal image gallery
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const modalCaption = document.getElementById("modalCaption");
-const closeModalBtn = document.getElementById("closeModal");
-
-function openModal(src, caption) {
-  modal.style.display = "flex";
-  modalImg.src = src;
-  modalCaption.innerText = caption;
-}
-
-closeModalBtn.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
-
-// Utility functions
-function sendMessage() {
-  const input = document.querySelector(".demo-input");
-  if (input && input.value.trim() !== "") {
-    sendAIMessage(input.value);
-    input.value = "";
-  }
-}
